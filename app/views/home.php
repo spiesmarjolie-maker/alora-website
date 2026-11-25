@@ -13,11 +13,11 @@ $piece = function (?array $p, string $cls) {
 <!-- 1. The film: one pinned stage, scrubbed by scroll. Scenes hand over to each other. -->
 <section class="film" data-film aria-label="Alora: where dreams meet light">
   <div class="film__stage">
-    <?php if (is_file(PUBLIC_DIR . '/media/film/alora-film-1280.mp4')): ?>
+    <?php if (is_file(PUBLIC_DIR . '/media/film/alora-film-1080.mp4')): ?>
     <!-- The Flow film: scrubbed by scroll in site.js (no autoplay). The poster is the still for reduced motion. -->
     <video class="film__video" data-film-video muted playsinline preload="none" aria-hidden="true" tabindex="-1"
       poster="/media/film/alora-film-poster.webp"
-      data-src-wide="/media/film/alora-film-1280.mp4" data-src-narrow="/media/film/alora-film-960.mp4"></video>
+      data-src-wide="/media/film/alora-film-1080.mp4" data-src-narrow="/media/film/alora-film-720.mp4"></video>
     <?php endif ?>
     <div class="film__glow" aria-hidden="true"></div>
     <img class="film__logo" src="/assets/img/alora-logo.svg" alt="Alora" width="600" height="600" fetchpriority="high">
