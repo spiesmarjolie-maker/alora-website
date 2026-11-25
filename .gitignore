@@ -1,0 +1,11 @@
+# Never commit data, secrets or test logins
+storage/
+dev/LOCAL-LOGINS.txt
+*.sqlite
+*.sqlite-*
+*.log
+qa/
+public/_photolab.php
+.claude/
+node_modules/
+.env
