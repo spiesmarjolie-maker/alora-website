@@ -138,10 +138,8 @@
     // 5 → shop: black warms to ivory and the film hands over to the page.
       .to(scene(5), { autoAlpha: 0, duration: 0.5 }, 7.7)
       .to('.film__glow', { autoAlpha: 0, duration: 0.6 }, 7.7)
-      .to(pieces('gift'), { scale: 1.15, duration: 0.9 }, 7.8)
-      // The gift opens into the page: an ivory circle grows out of it until it fills the screen.
-      .fromTo('.film__ivory', { clipPath: `circle(0% at ${innerWidth >= 900 ? 70 : 50}% ${innerWidth >= 900 ? 50 : 46}%)` },
-        { clipPath: `circle(150% at ${innerWidth >= 900 ? 70 : 50}% ${innerWidth >= 900 ? 50 : 46}%)`, duration: 1.1, ease: 'power2.in' }, 8.0)
+      // The gift drifts away softly; no shapes or flashes on the way out.
+      .to(pieces('gift'), { autoAlpha: 0, y: -30, duration: 0.9, ease: 'sine.inOut' }, 7.8)
       // Ivory on ivory: the stage turns clear and "New in" underneath is simply there.
       .set(stage, { backgroundColor: 'transparent', pointerEvents: 'none', '--shade': 0 }, 9.1)
       .set($$('.film__glow, .film__pieces, .film__copy, .film__logo, .film__branch', stage), { autoAlpha: 0 }, 9.1)
@@ -172,6 +170,11 @@
       to(10.0, 5.3, 2.4);    // scenes 3–5: the light holds, warm and dark enough for the words
       to(15.85, 1.4, 7.7);   // hand-over: light floods the frame and settles into ivory silk
       tl.to(stage, { '--shade': 0, duration: 0.8 }, 7.7); // lift the reading shade off the bright silk
+      // The linen dissolves gently into the ivory page, so the first row of "New in" is never covered.
+      tl.to(video, { autoAlpha: 0, duration: 0.9, ease: 'sine.inOut' }, 9.1);
+    } else {
+      // No film: the black stage fades evenly to ivory instead.
+      tl.fromTo('.film__ivory', { autoAlpha: 0 }, { autoAlpha: 1, duration: 1.1, ease: 'sine.inOut' }, 8.0);
     }
 
     nav.classList.add('is-over-dark');
