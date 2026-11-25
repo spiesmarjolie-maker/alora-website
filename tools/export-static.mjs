@@ -33,8 +33,14 @@ while (queue.length) {
     if (!p.endsWith('/') || SKIP.test(p) || seen.has(p) || p.startsWith('/assets/') || p.startsWith('/media/')) continue;
     seen.add(p); queue.push(p);
   }
+  // Shop pages 2, 3, … ("?page=2") become plain folders ("page/2/"), since Pages cannot read query strings.
+  for (const m of html.matchAll(/href="(\/[^"#?]*\/)\?page=(\d+)"/g)) {
+    const p = `${m[1]}?page=${m[2]}`;
+    if (!seen.has(p)) { seen.add(p); queue.push(p); }
+  }
+  html = html.replace(/href="(\/[^"#?]*\/)\?page=(\d+)"/g, 'href="$1page/$2/"').replace(/href="(\/[^"#?]*\/)\?"/g, 'href="$1"');
   html = rebase(html).replace(/<body([^>]*)>/, `<body$1>${BANNER}`);
-  const file = join(OUT, decodeURIComponent(path), 'index.html');
+  const file = join(OUT, decodeURIComponent(path.replace(/\?page=(\d+)$/, 'page/$1/')), 'index.html');
   await mkdir(dirname(file), { recursive: true });
   await writeFile(file, html);
   pages++;

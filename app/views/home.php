@@ -52,8 +52,8 @@ $piece = function (?array $p, string $cls) {
         <p class="chips"><a href="/product-category/accessories/">Accessories &amp; Adornments</a><a href="/product-category/nails/">Press-Ons &amp; Nails</a></p>
       </div>
       <div class="scene-text" data-scene="4">
-        <p class="eyebrow">Home, bath &amp; book</p>
-        <h2 class="display">For the home, <em>the bath, the book.</em></h2>
+        <p class="eyebrow">Home, bath &amp; stationery</p>
+        <h2 class="display">For the home, bath, <em>and for stationery lovers.</em></h2>
         <p class="chips"><a href="/product-category/home-glow/">Home Glow</a><a href="/product-category/bath-body/">Beauty</a><a href="/product-category/stationary-lovers/">Stationery</a><a href="/product-category/christian-girlies/">Christian Girlies</a></p>
       </div>
       <div class="scene-text" data-scene="5">
