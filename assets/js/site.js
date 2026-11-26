@@ -96,13 +96,26 @@
     gsap.set(olives, { scale: 0, transformOrigin: '50% 50%' });
 
     const out = () => ({ autoAlpha: 0, y: -40, duration: 0.5 });
+    // The satin holds the whole screen until the very end of the film, when "New in" is already in place
+    // underneath; only then does it dissolve (in time, not scroll), so the products never slide under the satin.
+    let cleared = false;
+    const handOver = (p) => {
+      nav.classList.toggle('is-over-dark', p < 0.85);
+      const clear = p > 0.992;
+      if (clear === cleared) return;
+      cleared = clear;
+      // The last layer on screen: the satin film, or the plain ivory when there is no film.
+      gsap.to($('.film__video', stage) || $('.film__ivory', stage),
+        { autoAlpha: clear ? 0 : 1, duration: clear ? 1 : 0.4, ease: 'sine.inOut', overwrite: 'auto' });
+      gsap.set(stage, { backgroundColor: clear ? 'transparent' : '', pointerEvents: clear ? 'none' : '' });
+    };
     const tl = gsap.timeline({
       defaults: { ease: 'power2.inOut', duration: 1 },
       scrollTrigger: {
         trigger: film, pin: stage, start: 'top top', end: '+=520%', scrub: 0.6, anticipatePin: 1,
         // The nav is dark glass while it sits over the black film (until the film turns ivory).
-        onUpdate: (s) => nav.classList.toggle('is-over-dark', s.progress < 0.93),
-        onRefresh: (s) => nav.classList.toggle('is-over-dark', s.progress < 0.93),
+        onUpdate: (s) => handOver(s.progress),
+        onRefresh: (s) => handOver(s.progress),
       },
     });
 
@@ -140,10 +153,10 @@
       .to('.film__glow', { autoAlpha: 0, duration: 0.6 }, 7.7)
       // The gift drifts away softly; no shapes or flashes on the way out.
       .to(pieces('gift'), { autoAlpha: 0, y: -30, duration: 0.9, ease: 'sine.inOut' }, 7.8)
-      // Ivory on ivory: the stage turns clear and "New in" underneath is simply there.
-      .set(stage, { backgroundColor: 'transparent', pointerEvents: 'none', '--shade': 0 }, 9.1)
-      .set($$('.film__glow, .film__pieces, .film__copy, .film__logo, .film__branch', stage), { autoAlpha: 0 }, 9.1)
-      .to('.film__ivory', { autoAlpha: 0, duration: 0.4 }, 9.1);
+      .set(stage, { '--shade': 0 }, 9.1)
+      .set($('.film__glow, .film__pieces, .film__copy, .film__logo, .film__branch', stage), { autoAlpha: 0 }, 9.1)
+      // Full-screen satin, held for a breath before the hand-over (see handOver above).
+      .to({}, { duration: 1.6 }, 9.1);
 
     // The Flow film (if present) is scrubbed by the same scroll: the branch blooms through scenes 1–2,
     // the light holds behind the products in 3–5, then floods into ivory silk as the film hands over to the shop.
@@ -170,8 +183,8 @@
       to(10.0, 5.3, 2.4);    // scenes 3–5: the light holds, warm and dark enough for the words
       to(15.85, 1.4, 7.7);   // hand-over: light floods the frame and settles into ivory silk
       tl.to(stage, { '--shade': 0, duration: 0.8 }, 7.7); // lift the reading shade off the bright silk
-      // The linen dissolves gently into the ivory page, so the first row of "New in" is never covered.
-      tl.to(video, { autoAlpha: 0, duration: 0.9, ease: 'sine.inOut' }, 9.1);
+      // The branch film only appears once the visitor starts scrolling.
+      tl.fromTo(video, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.5, ease: 'sine.out', immediateRender: true }, 0.02);
     } else {
       // No film: the black stage fades evenly to ivory instead.
       tl.fromTo('.film__ivory', { autoAlpha: 0 }, { autoAlpha: 1, duration: 1.1, ease: 'sine.inOut' }, 8.0);
@@ -198,6 +211,85 @@
       once: true,
       onEnter: (els) => gsap.to(els, { autoAlpha: 1, y: 0, duration: 0.9, ease: 'power3.out', stagger: 0.07 }),
     });
+  }
+
+  // ---- Mystery Scoop: the total follows the number of scoops ----------------
+  const rand = (c) => 'R' + (c / 100).toFixed(2).replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+  const scoop = $('[data-scoop]');
+  if (scoop) {
+    const each = +scoop.dataset.each;
+    const total = $('[data-scoop-total]', scoop);
+    scoop.addEventListener('change', () => { total.textContent = rand(each * +($('input[name=qty]:checked', scoop)?.value || 1)); });
+  }
+
+  // ---- Build a Box: ticked pieces drop into the drawn box ------------------
+  const bab = $('[data-bab]');
+  if (bab) {
+    const boxCents = +bab.dataset.box;
+    const inputs = $$('input[name="items[]"]', bab);
+    const layer = $('[data-bab-items]', bab);
+    const list = $('[data-bab-list]', bab);
+    const shown = new Map(); // input -> <img> inside the box
+    const anim = window.gsap && !calm;
+
+    const place = () => {
+      // Pieces stand side by side in rows, the newest row in front; up to 5 per row, then they overlap.
+      const els = [...shown.values()];
+      const perRow = Math.min(5, Math.max(1, Math.ceil(Math.sqrt(els.length * 1.6))));
+      els.forEach((el, i) => {
+        const row = Math.floor(i / perRow), col = i % perRow, inRow = Math.min(perRow, els.length - row * perRow);
+        el.style.left = `${((col + 0.5) / inRow) * 100}%`;
+        el.style.bottom = `${8 + row * 16}%`;
+        el.style.zIndex = String(10 - row);
+        el.style.setProperty('--h', `${Math.max(34, 70 - els.length * 3)}%`);
+      });
+    };
+
+    const render = () => {
+      const on = inputs.filter((i) => i.checked);
+      let sum = 0;
+      for (const i of on) sum += +i.dataset.price;
+      for (const i of on) {
+        if (shown.has(i)) continue;
+        const img = document.createElement('img');
+        img.src = i.dataset.img; img.alt = '';
+        img.className = 'bab__piece' + (i.dataset.cut === '1' ? ' is-cut' : '');
+        layer.append(img);
+        shown.set(i, img);
+        if (anim) gsap.from(img, { y: -260, autoAlpha: 0, rotate: gsap.utils.random(-14, 14), duration: 0.8, ease: 'bounce.out' });
+      }
+      for (const [i, img] of shown) {
+        if (i.checked) continue;
+        shown.delete(i);
+        if (anim) gsap.to(img, { y: -120, autoAlpha: 0, duration: 0.4, onComplete: () => img.remove() }); else img.remove();
+      }
+      place();
+      const n = on.length, words = `${n} ${n === 1 ? 'piece' : 'pieces'}`;
+      $('[data-bab-count]', bab).textContent = words;
+      $('[data-bab-count-bar]', bab).textContent = words;
+      $('[data-bab-items-total]', bab).textContent = rand(sum);
+      $('[data-bab-total]', bab).textContent = rand(boxCents + sum);
+      $('[data-bab-total-bar]', bab).textContent = rand(boxCents + sum);
+      $$('[data-bab-go]', bab).forEach((b) => { b.disabled = !n; });
+      list.replaceChildren(...on.map((i) => {
+        const li = document.createElement('li');
+        const b = document.createElement('button');
+        b.type = 'button'; b.textContent = '×'; b.setAttribute('aria-label', `Take ${i.dataset.name} out of the box`);
+        b.addEventListener('click', () => { i.checked = false; render(); });
+        li.append(Object.assign(document.createElement('span'), { textContent: i.dataset.name }), b);
+        return li;
+      }));
+    };
+    inputs.forEach((i) => i.addEventListener('change', render));
+
+    // Category filter.
+    const chips = $$('[data-bab-cat]', bab);
+    chips.forEach((c) => c.addEventListener('click', () => {
+      chips.forEach((x) => x.setAttribute('aria-pressed', String(x === c)));
+      const want = c.dataset.babCat;
+      $$('.bab__item', bab).forEach((it) => { it.hidden = want && !it.dataset.cats.split(' ').includes(want); });
+    }));
+    render();
   }
 
   addEventListener('load', () => ScrollTrigger.refresh());

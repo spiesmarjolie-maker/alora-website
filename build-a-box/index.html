@@ -1,0 +1,1563 @@
+<!doctype html>
+<html lang="en-ZA">
+<head>
+<meta charset="utf-8">
+<script>document.documentElement.classList.add('js')</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Build a Box · Alora</title>
+<meta name="description" content="Build your own Alora gift box: pick any pieces from the shop and we pack them in a beautiful box for R50,00.">
+<meta name="theme-color" content="#0e0c0a">
+<meta property="og:title" content="Build a Box">
+<meta property="og:description" content="Build your own Alora gift box: pick any pieces from the shop and we pack them in a beautiful box for R50,00.">
+<link rel="preload" href="/alora-website/assets/fonts/cormorant-500.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/alora-website/assets/fonts/jost-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/alora-website/assets/css/site.css?v=1795726313">
+<link rel="icon" href="/alora-website/assets/img/icon.png">
+</head>
+<body class=""><div style="position:sticky;top:0;z-index:9999;background:#1a1612;color:#e8d3a8;font:500 13px/1.4 Jost,system-ui,sans-serif;text-align:center;padding:8px 12px">Preview copy for review: browsing only. Bag, checkout and accounts are switched off.</div>
+<a class="skip" href="#main">Skip to content</a>
+<div class="preview-strip">Website preview by NFC Software Solutions</div>
+
+<header class="nav" data-nav>
+  <a class="nav__brand" href="/alora-website/" aria-label="Alora home">ALORA</a>
+  <nav class="nav__links" aria-label="Main">
+    <a href="/alora-website/shop/">Shop</a>
+    <a href="/alora-website/product-category/ready-packed-gifts/">Gifts</a>
+    <a href="/build-a-box/">Build a Box</a>
+    <a href="/mystery-scoop/">Mystery Scoop</a>
+    <a href="/alora-website/personalised/">Personalised</a>
+    <a href="/alora-website/about/">About</a>
+    <a href="/alora-website/contact/">Contact</a>
+  </nav>
+  <a class="nav__bag nav__acct" href="/alora-website/account/" aria-label="Sign in">
+    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M4 21c1.6-4 4.6-6 8-6s6.4 2 8 6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+  </a>
+  <a class="nav__bag" href="/alora-website/bag/" aria-label="Your bag, 0 items">
+    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 8h14l-1 12H6z M9 8a3 3 0 0 1 6 0" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+    <span class="nav__count" data-bag-count hidden>0</span>
+  </a>
+  <a class="pill" href="/alora-website/shop/">Shop</a>
+</header>
+
+<div class="toast" role="status" data-toast></div>
+<main id="main"><section class="page-head page-head--center">
+  <p class="eyebrow">Made by you, packed by us</p>
+  <h1 class="display-sm">Build a <em>Box</em></h1>
+  <p class="lead">Pick anything from the shop and watch it go into your box. We pack it all with ribbon and love. The gift box is R50,00, plus the pieces you choose.</p>
+</section>
+
+<form class="bab" method="post" action="/build-a-box/" data-bab data-box="5000">
+  <input type="hidden" name="csrf" value="d1279b615f45d0a042595f33d53a646d2eea6f040efbdee3260921fed6c5cfd2">
+  <!-- The box: the chosen pieces drop in behind its front panel. -->
+  <aside class="bab__side">
+    <div class="bab__stage" aria-hidden="true">
+      <div class="bab__lid"><svg class="bab__bow" viewBox="0 0 80 44"><path d="M40 24 C30 4 8 2 6 14 C4 26 26 28 40 24Z M40 24 C50 4 72 2 74 14 C76 26 54 28 40 24Z" fill="#c9a46a" stroke="#a77d43" stroke-width="1.5"/><path d="M38 24 L28 42 L34 41 L40 26 L46 41 L52 42 L42 24Z" fill="#b88f55"/><circle cx="40" cy="23" r="5" fill="#d4ad6c" stroke="#a77d43" stroke-width="1.5"/></svg></div>
+      <div class="bab__back"></div>
+      <div class="bab__items" data-bab-items></div>
+      <div class="bab__front"><span class="bab__ribbon"></span><span class="bab__tag">ALORA</span></div>
+    </div>
+    <div class="bab__sum">
+      <p class="row"><span>Gift box</span><span>R50,00</span></p>
+      <p class="row"><span data-bab-count>0 pieces</span><span data-bab-items-total>R0,00</span></p>
+      <p class="row row--total"><span>Your box</span><strong data-bab-total>R50,00</strong></p>
+      <ul class="bab__list" data-bab-list></ul>
+      <button class="pill pill--lg pill--block" data-bab-go disabled>Add my box to the bag</button>
+      <p class="note-delivery"><strong>Delivery is not included</strong> and is added at checkout.</p>
+    </div>
+  </aside>
+
+  <div class="bab__pick">
+    <nav class="chips chips--scroll" aria-label="Filter by category">
+      <button type="button" class="chip-btn" data-bab-cat="" aria-pressed="true">All</button>
+              <button type="button" class="chip-btn" data-bab-cat="accessories" aria-pressed="false">Accessories &amp; Adornments</button>
+              <button type="button" class="chip-btn" data-bab-cat="bath-body" aria-pressed="false">Beauty</button>
+              <button type="button" class="chip-btn" data-bab-cat="christian-girlies" aria-pressed="false">Christian Girlies</button>
+              <button type="button" class="chip-btn" data-bab-cat="creative-corner" aria-pressed="false">Creative Corner</button>
+              <button type="button" class="chip-btn" data-bab-cat="home-glow" aria-pressed="false">Home Glow</button>
+              <button type="button" class="chip-btn" data-bab-cat="nails" aria-pressed="false">Press-Ons &amp; Nail Essentials</button>
+              <button type="button" class="chip-btn" data-bab-cat="ready-packed-gifts" aria-pressed="false">Ready Packed Gifts</button>
+              <button type="button" class="chip-btn" data-bab-cat="stationary-lovers" aria-pressed="false">Stationery Lovers</button>
+          </nav>
+    <div class="bab__grid">
+              <label class="bab__item" data-cats="home-glow">
+          <input type="checkbox" name="items[]" value="129" data-name="Asian Elephant UV DTF"
+            data-price="12000" data-img="/alora-website/media/p/asian-elephant-uv-dtf-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/asian-elephant-uv-dtf-600.webp" srcset="/alora-website/media/p/asian-elephant-uv-dtf-600.webp 600w, /alora-website/media/p/asian-elephant-uv-dtf-1200.webp 1200w, /alora-website/media/p/asian-elephant-uv-dtf-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Asian Elephant UV DTF" loading="lazy"></span>
+          <span class="bab__name">Asian Elephant UV DTF</span>
+          <span class="bab__price">R120,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="bath-body">
+          <input type="checkbox" name="items[]" value="93" data-name="Assorted Small Soaps"
+            data-price="500" data-img="/alora-website/media/p/assorted-small-soaps-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/assorted-small-soaps-600.webp" srcset="/alora-website/media/p/assorted-small-soaps-600.webp 600w, /alora-website/media/p/assorted-small-soaps-1200.webp 1200w, /alora-website/media/p/assorted-small-soaps-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Assorted Small Soaps" loading="lazy"></span>
+          <span class="bab__name">Assorted Small Soaps</span>
+          <span class="bab__price">R5,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="home-glow">
+          <input type="checkbox" name="items[]" value="130" data-name="Autumn UV DTF"
+            data-price="12000" data-img="/alora-website/media/p/autumn-uv-dtf-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/autumn-uv-dtf-600.webp" srcset="/alora-website/media/p/autumn-uv-dtf-600.webp 600w, /alora-website/media/p/autumn-uv-dtf-1200.webp 1200w, /alora-website/media/p/autumn-uv-dtf-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Autumn UV DTF" loading="lazy"></span>
+          <span class="bab__name">Autumn UV DTF</span>
+          <span class="bab__price">R120,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="stationary-lovers">
+          <input type="checkbox" name="items[]" value="148" data-name="Axolotl Glitter Bookmark"
+            data-price="4000" data-img="/alora-website/media/p/axolotl-glitter-bookmark-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/axolotl-glitter-bookmark-600.webp" srcset="/alora-website/media/p/axolotl-glitter-bookmark-600.webp 600w, /alora-website/media/p/axolotl-glitter-bookmark-1200.webp 1200w, /alora-website/media/p/axolotl-glitter-bookmark-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Axolotl Glitter Bookmark" loading="lazy"></span>
+          <span class="bab__name">Axolotl Glitter Bookmark</span>
+          <span class="bab__price">R40,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="bath-body">
+          <input type="checkbox" name="items[]" value="73" data-name="Bath Bomb"
+            data-price="4000" data-img="/alora-website/media/p/bath-bomb-600.webp" data-cut="0">
+          <span class="bab__img"><img src="/alora-website/media/p/bath-bomb-600.webp" srcset="/alora-website/media/p/bath-bomb-600.webp 600w, /alora-website/media/p/bath-bomb-1200.webp 1200w, /alora-website/media/p/bath-bomb-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Bath Bomb" loading="lazy"></span>
+          <span class="bab__name">Bath Bomb</span>
+          <span class="bab__price">R40,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="bath-body">
+          <input type="checkbox" name="items[]" value="89" data-name="Beehive Bath Salts"
+            data-price="1500" data-img="/alora-website/media/p/beehive-bath-salts-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/beehive-bath-salts-600.webp" srcset="/alora-website/media/p/beehive-bath-salts-600.webp 600w, /alora-website/media/p/beehive-bath-salts-1200.webp 1200w, /alora-website/media/p/beehive-bath-salts-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Beehive Bath Salts" loading="lazy"></span>
+          <span class="bab__name">Beehive Bath Salts</span>
+          <span class="bab__price">R15,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="home-glow">
+          <input type="checkbox" name="items[]" value="170" data-name="Best Dad Ever Mug"
+            data-price="6000" data-img="/alora-website/media/p/best-dad-ever-mug-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/best-dad-ever-mug-600.webp" srcset="/alora-website/media/p/best-dad-ever-mug-600.webp 600w, /alora-website/media/p/best-dad-ever-mug-1200.webp 1200w, /alora-website/media/p/best-dad-ever-mug-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Best Dad Ever Mug" loading="lazy"></span>
+          <span class="bab__name">Best Dad Ever Mug</span>
+          <span class="bab__price">R60,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="home-glow">
+          <input type="checkbox" name="items[]" value="131" data-name="Best-Teacher-Ever-Floral-Tumbler"
+            data-price="12000" data-img="/alora-website/media/p/best-teacher-ever-floral-uv-dtf-2-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/best-teacher-ever-floral-uv-dtf-2-600.webp" srcset="/alora-website/media/p/best-teacher-ever-floral-uv-dtf-2-600.webp 600w, /alora-website/media/p/best-teacher-ever-floral-uv-dtf-2-1200.webp 1200w, /alora-website/media/p/best-teacher-ever-floral-uv-dtf-2-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Best-Teacher-Ever-Floral-Tumbler" loading="lazy"></span>
+          <span class="bab__name">Best-Teacher-Ever-Floral-Tumbler</span>
+          <span class="bab__price">R120,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="christian-girlies">
+          <input type="checkbox" name="items[]" value="162" data-name="Bible Scripture Pen"
+            data-price="2000" data-img="/alora-website/media/p/bible-scripture-pen-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/bible-scripture-pen-600.webp" srcset="/alora-website/media/p/bible-scripture-pen-600.webp 600w, /alora-website/media/p/bible-scripture-pen-1200.webp 1200w, /alora-website/media/p/bible-scripture-pen-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Bible Scripture Pen" loading="lazy"></span>
+          <span class="bab__name">Bible Scripture Pen</span>
+          <span class="bab__price">R20,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="accessories">
+          <input type="checkbox" name="items[]" value="23" data-name="Black Roses"
+            data-price="4000" data-img="/alora-website/media/p/black-roses-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/black-roses-600.webp" srcset="/alora-website/media/p/black-roses-600.webp 600w, /alora-website/media/p/black-roses-1200.webp 1200w, /alora-website/media/p/black-roses-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Black Roses" loading="lazy"></span>
+          <span class="bab__name">Black Roses</span>
+          <span class="bab__price">R40,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="christian-girlies">
+          <input type="checkbox" name="items[]" value="149" data-name="Blessed Are The Poor in Spirit Bookmark"
+            data-price="4000" data-img="/alora-website/media/p/blessed-are-the-poor-in-spirit-bookmark-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/blessed-are-the-poor-in-spirit-bookmark-600.webp" srcset="/alora-website/media/p/blessed-are-the-poor-in-spirit-bookmark-600.webp 600w, /alora-website/media/p/blessed-are-the-poor-in-spirit-bookmark-1200.webp 1200w, /alora-website/media/p/blessed-are-the-poor-in-spirit-bookmark-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Blessed Are The Poor in Spirit Bookmark" loading="lazy"></span>
+          <span class="bab__name">Blessed Are The Poor in Spirit Bookmark</span>
+          <span class="bab__price">R40,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="accessories">
+          <input type="checkbox" name="items[]" value="66" data-name="Blue Flower"
+            data-price="4000" data-img="/alora-website/media/p/blue-flower-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/blue-flower-600.webp" srcset="/alora-website/media/p/blue-flower-600.webp 600w, /alora-website/media/p/blue-flower-1200.webp 1200w, /alora-website/media/p/blue-flower-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Blue Flower" loading="lazy"></span>
+          <span class="bab__name">Blue Flower</span>
+          <span class="bab__price">R40,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="home-glow">
+          <input type="checkbox" name="items[]" value="178" data-name="Blue Glass Floral Tumbler"
+            data-price="12000" data-img="/alora-website/media/p/blue-glass-floral-tumbler-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/blue-glass-floral-tumbler-600.webp" srcset="/alora-website/media/p/blue-glass-floral-tumbler-600.webp 600w, /alora-website/media/p/blue-glass-floral-tumbler-1200.webp 1200w, /alora-website/media/p/blue-glass-floral-tumbler-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Blue Glass Floral Tumbler" loading="lazy"></span>
+          <span class="bab__name">Blue Glass Floral Tumbler</span>
+          <span class="bab__price">R120,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="stationary-lovers">
+          <input type="checkbox" name="items[]" value="154" data-name="Blue Glitter Capybara Bookmark"
+            data-price="4000" data-img="/alora-website/media/p/blue-glitter-capybara-bookmark-600.webp" data-cut="0">
+          <span class="bab__img"><img src="/alora-website/media/p/blue-glitter-capybara-bookmark-600.webp" srcset="/alora-website/media/p/blue-glitter-capybara-bookmark-600.webp 600w, /alora-website/media/p/blue-glitter-capybara-bookmark-1200.webp 1200w, /alora-website/media/p/blue-glitter-capybara-bookmark-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Blue Glitter Capybara Bookmark" loading="lazy"></span>
+          <span class="bab__name">Blue Glitter Capybara Bookmark</span>
+          <span class="bab__price">R40,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="home-glow">
+          <input type="checkbox" name="items[]" value="132" data-name="Boho UV DTF"
+            data-price="12000" data-img="/alora-website/media/p/boho-uv-dtf-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/boho-uv-dtf-600.webp" srcset="/alora-website/media/p/boho-uv-dtf-600.webp 600w, /alora-website/media/p/boho-uv-dtf-1200.webp 1200w, /alora-website/media/p/boho-uv-dtf-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Boho UV DTF" loading="lazy"></span>
+          <span class="bab__name">Boho UV DTF</span>
+          <span class="bab__price">R120,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="accessories">
+          <input type="checkbox" name="items[]" value="40" data-name="Bollywood Baby Blue"
+            data-price="4000" data-img="/alora-website/media/p/bollywood-baby-blue-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/bollywood-baby-blue-600.webp" srcset="/alora-website/media/p/bollywood-baby-blue-600.webp 600w, /alora-website/media/p/bollywood-baby-blue-1200.webp 1200w, /alora-website/media/p/bollywood-baby-blue-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Bollywood Baby Blue" loading="lazy"></span>
+          <span class="bab__name">Bollywood Baby Blue</span>
+          <span class="bab__price">R40,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="accessories">
+          <input type="checkbox" name="items[]" value="63" data-name="Bollywood Baby Blue"
+            data-price="4000" data-img="/alora-website/media/p/bollywood-baby-blue-2-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/bollywood-baby-blue-2-600.webp" srcset="/alora-website/media/p/bollywood-baby-blue-2-600.webp 600w, /alora-website/media/p/bollywood-baby-blue-2-1200.webp 1200w, /alora-website/media/p/bollywood-baby-blue-2-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Bollywood Baby Blue" loading="lazy"></span>
+          <span class="bab__name">Bollywood Baby Blue</span>
+          <span class="bab__price">R40,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="accessories">
+          <input type="checkbox" name="items[]" value="47" data-name="Bollywood Baby Pink"
+            data-price="4000" data-img="/alora-website/media/p/bollywood-pink-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/bollywood-pink-600.webp" srcset="/alora-website/media/p/bollywood-pink-600.webp 600w, /alora-website/media/p/bollywood-pink-1200.webp 1200w, /alora-website/media/p/bollywood-pink-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Bollywood Baby Pink" loading="lazy"></span>
+          <span class="bab__name">Bollywood Baby Pink</span>
+          <span class="bab__price">R40,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="accessories">
+          <input type="checkbox" name="items[]" value="62" data-name="Bollywood Black"
+            data-price="4000" data-img="/alora-website/media/p/bollywood-black-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/bollywood-black-600.webp" srcset="/alora-website/media/p/bollywood-black-600.webp 600w, /alora-website/media/p/bollywood-black-1200.webp 1200w, /alora-website/media/p/bollywood-black-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Bollywood Black" loading="lazy"></span>
+          <span class="bab__name">Bollywood Black</span>
+          <span class="bab__price">R40,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="accessories">
+          <input type="checkbox" name="items[]" value="38" data-name="Bollywood Blue"
+            data-price="4000" data-img="/alora-website/media/p/bollywood-blue-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/bollywood-blue-600.webp" srcset="/alora-website/media/p/bollywood-blue-600.webp 600w, /alora-website/media/p/bollywood-blue-1200.webp 1200w, /alora-website/media/p/bollywood-blue-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Bollywood Blue" loading="lazy"></span>
+          <span class="bab__name">Bollywood Blue</span>
+          <span class="bab__price">R40,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="accessories">
+          <input type="checkbox" name="items[]" value="48" data-name="Bollywood Brown"
+            data-price="4000" data-img="/alora-website/media/p/bollywood-brown-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/bollywood-brown-600.webp" srcset="/alora-website/media/p/bollywood-brown-600.webp 600w, /alora-website/media/p/bollywood-brown-1200.webp 1200w, /alora-website/media/p/bollywood-brown-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Bollywood Brown" loading="lazy"></span>
+          <span class="bab__name">Bollywood Brown</span>
+          <span class="bab__price">R40,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="accessories">
+          <input type="checkbox" name="items[]" value="54" data-name="Bollywood Brown"
+            data-price="4000" data-img="/alora-website/media/p/bollywood-brown-2-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/bollywood-brown-2-600.webp" srcset="/alora-website/media/p/bollywood-brown-2-600.webp 600w, /alora-website/media/p/bollywood-brown-2-1200.webp 1200w, /alora-website/media/p/bollywood-brown-2-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Bollywood Brown" loading="lazy"></span>
+          <span class="bab__name">Bollywood Brown</span>
+          <span class="bab__price">R40,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="accessories">
+          <input type="checkbox" name="items[]" value="44" data-name="Bollywood Dark-Purple"
+            data-price="4000" data-img="/alora-website/media/p/bollywood-purple-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/bollywood-purple-600.webp" srcset="/alora-website/media/p/bollywood-purple-600.webp 600w, /alora-website/media/p/bollywood-purple-1200.webp 1200w, /alora-website/media/p/bollywood-purple-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Bollywood Dark-Purple" loading="lazy"></span>
+          <span class="bab__name">Bollywood Dark-Purple</span>
+          <span class="bab__price">R40,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="accessories">
+          <input type="checkbox" name="items[]" value="35" data-name="Bollywood Gold"
+            data-price="4000" data-img="/alora-website/media/p/bollywood-gold-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/bollywood-gold-600.webp" srcset="/alora-website/media/p/bollywood-gold-600.webp 600w, /alora-website/media/p/bollywood-gold-1200.webp 1200w, /alora-website/media/p/bollywood-gold-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Bollywood Gold" loading="lazy"></span>
+          <span class="bab__name">Bollywood Gold</span>
+          <span class="bab__price">R40,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="accessories">
+          <input type="checkbox" name="items[]" value="46" data-name="Bollywood Green"
+            data-price="4000" data-img="/alora-website/media/p/bollywood-green-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/bollywood-green-600.webp" srcset="/alora-website/media/p/bollywood-green-600.webp 600w, /alora-website/media/p/bollywood-green-1200.webp 1200w, /alora-website/media/p/bollywood-green-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Bollywood Green" loading="lazy"></span>
+          <span class="bab__name">Bollywood Green</span>
+          <span class="bab__price">R40,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="accessories">
+          <input type="checkbox" name="items[]" value="57" data-name="Bollywood Pink"
+            data-price="4000" data-img="/alora-website/media/p/bollywood-pink-2-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/bollywood-pink-2-600.webp" srcset="/alora-website/media/p/bollywood-pink-2-600.webp 600w, /alora-website/media/p/bollywood-pink-2-1200.webp 1200w, /alora-website/media/p/bollywood-pink-2-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Bollywood Pink" loading="lazy"></span>
+          <span class="bab__name">Bollywood Pink</span>
+          <span class="bab__price">R40,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="accessories">
+          <input type="checkbox" name="items[]" value="64" data-name="Bollywood Purple"
+            data-price="4000" data-img="/alora-website/media/p/bollywood-purple-2-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/bollywood-purple-2-600.webp" srcset="/alora-website/media/p/bollywood-purple-2-600.webp 600w, /alora-website/media/p/bollywood-purple-2-1200.webp 1200w, /alora-website/media/p/bollywood-purple-2-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Bollywood Purple" loading="lazy"></span>
+          <span class="bab__name">Bollywood Purple</span>
+          <span class="bab__price">R40,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="accessories">
+          <input type="checkbox" name="items[]" value="33" data-name="Bollywood Red"
+            data-price="4000" data-img="/alora-website/media/p/bollywood-red-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/bollywood-red-600.webp" srcset="/alora-website/media/p/bollywood-red-600.webp 600w, /alora-website/media/p/bollywood-red-1200.webp 1200w, /alora-website/media/p/bollywood-red-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Bollywood Red" loading="lazy"></span>
+          <span class="bab__name">Bollywood Red</span>
+          <span class="bab__price">R40,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="accessories">
+          <input type="checkbox" name="items[]" value="85" data-name="Bracelets"
+            data-price="1500" data-img="/alora-website/media/p/bracelets-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/bracelets-600.webp" srcset="/alora-website/media/p/bracelets-600.webp 600w, /alora-website/media/p/bracelets-1200.webp 1200w, /alora-website/media/p/bracelets-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Bracelets" loading="lazy"></span>
+          <span class="bab__name">Bracelets</span>
+          <span class="bab__price">R15,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="nails">
+          <input type="checkbox" name="items[]" value="82" data-name="Butterfly Nail File"
+            data-price="1000" data-img="/alora-website/media/p/butterfly-nail-file-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/butterfly-nail-file-600.webp" srcset="/alora-website/media/p/butterfly-nail-file-600.webp 600w, /alora-website/media/p/butterfly-nail-file-1200.webp 1200w, /alora-website/media/p/butterfly-nail-file-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Butterfly Nail File" loading="lazy"></span>
+          <span class="bab__name">Butterfly Nail File</span>
+          <span class="bab__price">R10,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="home-glow">
+          <input type="checkbox" name="items[]" value="133" data-name="Camp Life Glass"
+            data-price="8000" data-img="/alora-website/media/p/camp-life-uv-dtf-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/camp-life-uv-dtf-600.webp" srcset="/alora-website/media/p/camp-life-uv-dtf-600.webp 600w, /alora-website/media/p/camp-life-uv-dtf-1200.webp 1200w, /alora-website/media/p/camp-life-uv-dtf-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Camp Life Glass" loading="lazy"></span>
+          <span class="bab__name">Camp Life Glass</span>
+          <span class="bab__price">R80,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="home-glow">
+          <input type="checkbox" name="items[]" value="135" data-name="Camping Gear Tumbler"
+            data-price="12000" data-img="/alora-website/media/p/camping-gear-tumbler-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/camping-gear-tumbler-600.webp" srcset="/alora-website/media/p/camping-gear-tumbler-600.webp 600w, /alora-website/media/p/camping-gear-tumbler-1200.webp 1200w, /alora-website/media/p/camping-gear-tumbler-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Camping Gear Tumbler" loading="lazy"></span>
+          <span class="bab__name">Camping Gear Tumbler</span>
+          <span class="bab__price">R120,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="home-glow">
+          <input type="checkbox" name="items[]" value="134" data-name="Camping Weekend Tumbler"
+            data-price="12000" data-img="/alora-website/media/p/camping-weekend-uv-dtf-2-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/camping-weekend-uv-dtf-2-600.webp" srcset="/alora-website/media/p/camping-weekend-uv-dtf-2-600.webp 600w, /alora-website/media/p/camping-weekend-uv-dtf-2-1200.webp 1200w, /alora-website/media/p/camping-weekend-uv-dtf-2-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Camping Weekend Tumbler" loading="lazy"></span>
+          <span class="bab__name">Camping Weekend Tumbler</span>
+          <span class="bab__price">R120,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="accessories">
+          <input type="checkbox" name="items[]" value="58" data-name="Candy-Color Hoops"
+            data-price="4000" data-img="/alora-website/media/p/candy-color-hoops-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/candy-color-hoops-600.webp" srcset="/alora-website/media/p/candy-color-hoops-600.webp 600w, /alora-website/media/p/candy-color-hoops-1200.webp 1200w, /alora-website/media/p/candy-color-hoops-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Candy-Color Hoops" loading="lazy"></span>
+          <span class="bab__name">Candy-Color Hoops</span>
+          <span class="bab__price">R40,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="bath-body">
+          <input type="checkbox" name="items[]" value="105" data-name="Chai Latte 2ml"
+            data-price="1500" data-img="/alora-website/media/p/chai-latte-2ml-600.webp" data-cut="0">
+          <span class="bab__img"><img src="/alora-website/media/p/chai-latte-2ml-600.webp" srcset="/alora-website/media/p/chai-latte-2ml-600.webp 600w, /alora-website/media/p/chai-latte-2ml-1200.webp 1200w, /alora-website/media/p/chai-latte-2ml-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Chai Latte 2ml" loading="lazy"></span>
+          <span class="bab__name">Chai Latte 2ml</span>
+          <span class="bab__price">R15,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="bath-body">
+          <input type="checkbox" name="items[]" value="104" data-name="Charming Rose 3ml"
+            data-price="2000" data-img="/alora-website/media/p/charming-rose-3ml-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/charming-rose-3ml-600.webp" srcset="/alora-website/media/p/charming-rose-3ml-600.webp 600w, /alora-website/media/p/charming-rose-3ml-1200.webp 1200w, /alora-website/media/p/charming-rose-3ml-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Charming Rose 3ml" loading="lazy"></span>
+          <span class="bab__name">Charming Rose 3ml</span>
+          <span class="bab__price">R20,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="accessories">
+          <input type="checkbox" name="items[]" value="59" data-name="Coral Hoops"
+            data-price="4000" data-img="/alora-website/media/p/coral-hoops-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/coral-hoops-600.webp" srcset="/alora-website/media/p/coral-hoops-600.webp 600w, /alora-website/media/p/coral-hoops-1200.webp 1200w, /alora-website/media/p/coral-hoops-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Coral Hoops" loading="lazy"></span>
+          <span class="bab__name">Coral Hoops</span>
+          <span class="bab__price">R40,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="nails">
+          <input type="checkbox" name="items[]" value="16" data-name="Creamy Love"
+            data-price="8000" data-img="/alora-website/media/p/creamy-love-2-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/creamy-love-2-600.webp" srcset="/alora-website/media/p/creamy-love-2-600.webp 600w, /alora-website/media/p/creamy-love-2-1200.webp 1200w, /alora-website/media/p/creamy-love-2-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Creamy Love" loading="lazy"></span>
+          <span class="bab__name">Creamy Love</span>
+          <span class="bab__price">R80,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="nails">
+          <input type="checkbox" name="items[]" value="7" data-name="Creamy-Gloss"
+            data-price="8000" data-img="/alora-website/media/p/creamy-gloss-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/creamy-gloss-600.webp" srcset="/alora-website/media/p/creamy-gloss-600.webp 600w, /alora-website/media/p/creamy-gloss-1200.webp 1200w, /alora-website/media/p/creamy-gloss-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Creamy-Gloss" loading="lazy"></span>
+          <span class="bab__name">Creamy-Gloss</span>
+          <span class="bab__price">R80,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="nails">
+          <input type="checkbox" name="items[]" value="1" data-name="Creamy-Pollen Power"
+            data-price="8000" data-img="/alora-website/media/p/758-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/758-600.webp" srcset="/alora-website/media/p/758-600.webp 600w, /alora-website/media/p/758-1200.webp 1200w, /alora-website/media/p/758-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Creamy-Pollen Power" loading="lazy"></span>
+          <span class="bab__name">Creamy-Pollen Power</span>
+          <span class="bab__price">R80,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="nails">
+          <input type="checkbox" name="items[]" value="9" data-name="Creamy-Rosé"
+            data-price="8000" data-img="/alora-website/media/p/creamy-rose-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/creamy-rose-600.webp" srcset="/alora-website/media/p/creamy-rose-600.webp 600w, /alora-website/media/p/creamy-rose-1200.webp 1200w, /alora-website/media/p/creamy-rose-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Creamy-Rosé" loading="lazy"></span>
+          <span class="bab__name">Creamy-Rosé</span>
+          <span class="bab__price">R80,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="accessories">
+          <input type="checkbox" name="items[]" value="37" data-name="Crystal Budd"
+            data-price="4000" data-img="/alora-website/media/p/crystal-budd-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/crystal-budd-600.webp" srcset="/alora-website/media/p/crystal-budd-600.webp 600w, /alora-website/media/p/crystal-budd-1200.webp 1200w, /alora-website/media/p/crystal-budd-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Crystal Budd" loading="lazy"></span>
+          <span class="bab__name">Crystal Budd</span>
+          <span class="bab__price">R40,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="accessories">
+          <input type="checkbox" name="items[]" value="34" data-name="Crystal Gold"
+            data-price="4000" data-img="/alora-website/media/p/crystal-gold-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/crystal-gold-600.webp" srcset="/alora-website/media/p/crystal-gold-600.webp 600w, /alora-website/media/p/crystal-gold-1200.webp 1200w, /alora-website/media/p/crystal-gold-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Crystal Gold" loading="lazy"></span>
+          <span class="bab__name">Crystal Gold</span>
+          <span class="bab__price">R40,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="nails">
+          <input type="checkbox" name="items[]" value="4" data-name="Culture Blue"
+            data-price="8000" data-img="/alora-website/media/p/culture-blue-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/culture-blue-600.webp" srcset="/alora-website/media/p/culture-blue-600.webp 600w, /alora-website/media/p/culture-blue-1200.webp 1200w, /alora-website/media/p/culture-blue-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Culture Blue" loading="lazy"></span>
+          <span class="bab__name">Culture Blue</span>
+          <span class="bab__price">R80,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="nails">
+          <input type="checkbox" name="items[]" value="20" data-name="Culture-Gold"
+            data-price="8000" data-img="/alora-website/media/p/culture-gold-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/culture-gold-600.webp" srcset="/alora-website/media/p/culture-gold-600.webp 600w, /alora-website/media/p/culture-gold-1200.webp 1200w, /alora-website/media/p/culture-gold-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Culture-Gold" loading="lazy"></span>
+          <span class="bab__name">Culture-Gold</span>
+          <span class="bab__price">R80,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="bath-body ready-packed-gifts">
+          <input type="checkbox" name="items[]" value="158" data-name="Cute Beauty Combo 1"
+            data-price="8000" data-img="/alora-website/media/p/cute-beauty-combo-1-600.webp" data-cut="0">
+          <span class="bab__img"><img src="/alora-website/media/p/cute-beauty-combo-1-600.webp" srcset="/alora-website/media/p/cute-beauty-combo-1-600.webp 600w, /alora-website/media/p/cute-beauty-combo-1-1200.webp 1200w, /alora-website/media/p/cute-beauty-combo-1-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Cute Beauty Combo 1" loading="lazy"></span>
+          <span class="bab__name">Cute Beauty Combo 1</span>
+          <span class="bab__price">R80,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="bath-body ready-packed-gifts">
+          <input type="checkbox" name="items[]" value="159" data-name="Cute Combo 2"
+            data-price="12000" data-img="/alora-website/media/p/cute-combo-2-600.webp" data-cut="0">
+          <span class="bab__img"><img src="/alora-website/media/p/cute-combo-2-600.webp" srcset="/alora-website/media/p/cute-combo-2-600.webp 600w, /alora-website/media/p/cute-combo-2-1200.webp 1200w, /alora-website/media/p/cute-combo-2-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Cute Combo 2" loading="lazy"></span>
+          <span class="bab__name">Cute Combo 2</span>
+          <span class="bab__price">R120,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="accessories">
+          <input type="checkbox" name="items[]" value="69" data-name="Cute Keychain"
+            data-price="3000" data-img="/alora-website/media/p/cute-keychain-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/cute-keychain-600.webp" srcset="/alora-website/media/p/cute-keychain-600.webp 600w, /alora-website/media/p/cute-keychain-1200.webp 1200w, /alora-website/media/p/cute-keychain-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Cute Keychain" loading="lazy"></span>
+          <span class="bab__name">Cute Keychain</span>
+          <span class="bab__price">R30,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="nails">
+          <input type="checkbox" name="items[]" value="83" data-name="Cuticle Oil 1ml"
+            data-price="1000" data-img="/alora-website/media/p/cuticle-oil-1ml-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/cuticle-oil-1ml-600.webp" srcset="/alora-website/media/p/cuticle-oil-1ml-600.webp 600w, /alora-website/media/p/cuticle-oil-1ml-1200.webp 1200w, /alora-website/media/p/cuticle-oil-1ml-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Cuticle Oil 1ml" loading="lazy"></span>
+          <span class="bab__name">Cuticle Oil 1ml</span>
+          <span class="bab__price">R10,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="nails">
+          <input type="checkbox" name="items[]" value="84" data-name="Cuticle Oil Pen"
+            data-price="1500" data-img="/alora-website/media/p/cuticle-oil-pen-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/cuticle-oil-pen-600.webp" srcset="/alora-website/media/p/cuticle-oil-pen-600.webp 600w, /alora-website/media/p/cuticle-oil-pen-1200.webp 1200w, /alora-website/media/p/cuticle-oil-pen-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Cuticle Oil Pen" loading="lazy"></span>
+          <span class="bab__name">Cuticle Oil Pen</span>
+          <span class="bab__price">R15,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="home-glow">
+          <input type="checkbox" name="items[]" value="137" data-name="Dolphin UV DTF"
+            data-price="8000" data-img="/alora-website/media/p/dolphin-uv-dtf-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/dolphin-uv-dtf-600.webp" srcset="/alora-website/media/p/dolphin-uv-dtf-600.webp 600w, /alora-website/media/p/dolphin-uv-dtf-1200.webp 1200w, /alora-website/media/p/dolphin-uv-dtf-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Dolphin UV DTF" loading="lazy"></span>
+          <span class="bab__name">Dolphin UV DTF</span>
+          <span class="bab__price">R80,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="home-glow">
+          <input type="checkbox" name="items[]" value="136" data-name="Dolphin UV DTF 2"
+            data-price="12000" data-img="/alora-website/media/p/dolphin-uv-dtf-2-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/dolphin-uv-dtf-2-600.webp" srcset="/alora-website/media/p/dolphin-uv-dtf-2-600.webp 600w, /alora-website/media/p/dolphin-uv-dtf-2-1200.webp 1200w, /alora-website/media/p/dolphin-uv-dtf-2-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Dolphin UV DTF 2" loading="lazy"></span>
+          <span class="bab__name">Dolphin UV DTF 2</span>
+          <span class="bab__price">R120,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="bath-body">
+          <input type="checkbox" name="items[]" value="94" data-name="Donut Candy Bar Soap"
+            data-price="700" data-img="/alora-website/media/p/donut-candy-bar-soap-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/donut-candy-bar-soap-600.webp" srcset="/alora-website/media/p/donut-candy-bar-soap-600.webp 600w, /alora-website/media/p/donut-candy-bar-soap-1200.webp 1200w, /alora-website/media/p/donut-candy-bar-soap-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Donut Candy Bar Soap" loading="lazy"></span>
+          <span class="bab__name">Donut Candy Bar Soap</span>
+          <span class="bab__price">R7,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="creative-corner">
+          <input type="checkbox" name="items[]" value="143" data-name="Eco Resin Painting Kit"
+            data-price="10000" data-img="/alora-website/media/p/eco-resin-painting-kit-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/eco-resin-painting-kit-600.webp" srcset="/alora-website/media/p/eco-resin-painting-kit-600.webp 600w, /alora-website/media/p/eco-resin-painting-kit-1200.webp 1200w, /alora-website/media/p/eco-resin-painting-kit-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Eco Resin Painting Kit" loading="lazy"></span>
+          <span class="bab__name">Eco Resin Painting Kit</span>
+          <span class="bab__price">R100,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="bath-body">
+          <input type="checkbox" name="items[]" value="98" data-name="Eye Masks"
+            data-price="1500" data-img="/alora-website/media/p/eye-masks-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/eye-masks-600.webp" srcset="/alora-website/media/p/eye-masks-600.webp 600w, /alora-website/media/p/eye-masks-1200.webp 1200w, /alora-website/media/p/eye-masks-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Eye Masks" loading="lazy"></span>
+          <span class="bab__name">Eye Masks</span>
+          <span class="bab__price">R15,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="bath-body">
+          <input type="checkbox" name="items[]" value="78" data-name="Eyelash 011"
+            data-price="3000" data-img="/alora-website/media/p/eyelash-011-600.webp" data-cut="0">
+          <span class="bab__img"><img src="/alora-website/media/p/eyelash-011-600.webp" srcset="/alora-website/media/p/eyelash-011-600.webp 600w, /alora-website/media/p/eyelash-011-1200.webp 1200w, /alora-website/media/p/eyelash-011-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Eyelash 011" loading="lazy"></span>
+          <span class="bab__name">Eyelash 011</span>
+          <span class="bab__price">R30,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="bath-body">
+          <input type="checkbox" name="items[]" value="77" data-name="Eyelash 016"
+            data-price="3000" data-img="/alora-website/media/p/eyelash-016-600.webp" data-cut="0">
+          <span class="bab__img"><img src="/alora-website/media/p/eyelash-016-600.webp" srcset="/alora-website/media/p/eyelash-016-600.webp 600w, /alora-website/media/p/eyelash-016-1200.webp 1200w, /alora-website/media/p/eyelash-016-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Eyelash 016" loading="lazy"></span>
+          <span class="bab__name">Eyelash 016</span>
+          <span class="bab__price">R30,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="bath-body">
+          <input type="checkbox" name="items[]" value="76" data-name="Eyelash 020"
+            data-price="3000" data-img="/alora-website/media/p/eyelash-020-600.webp" data-cut="0">
+          <span class="bab__img"><img src="/alora-website/media/p/eyelash-020-600.webp" srcset="/alora-website/media/p/eyelash-020-600.webp 600w, /alora-website/media/p/eyelash-020-1200.webp 1200w, /alora-website/media/p/eyelash-020-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Eyelash 020" loading="lazy"></span>
+          <span class="bab__name">Eyelash 020</span>
+          <span class="bab__price">R30,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="bath-body">
+          <input type="checkbox" name="items[]" value="75" data-name="Eyelash 025"
+            data-price="3000" data-img="/alora-website/media/p/eyelash-025-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/eyelash-025-600.webp" srcset="/alora-website/media/p/eyelash-025-600.webp 600w, /alora-website/media/p/eyelash-025-1200.webp 1200w, /alora-website/media/p/eyelash-025-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Eyelash 025" loading="lazy"></span>
+          <span class="bab__name">Eyelash 025</span>
+          <span class="bab__price">R30,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="bath-body">
+          <input type="checkbox" name="items[]" value="74" data-name="Eyelash034"
+            data-price="3000" data-img="/alora-website/media/p/eyelash034-600.webp" data-cut="0">
+          <span class="bab__img"><img src="/alora-website/media/p/eyelash034-600.webp" srcset="/alora-website/media/p/eyelash034-600.webp 600w, /alora-website/media/p/eyelash034-1200.webp 1200w, /alora-website/media/p/eyelash034-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Eyelash034" loading="lazy"></span>
+          <span class="bab__name">Eyelash034</span>
+          <span class="bab__price">R30,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="bath-body">
+          <input type="checkbox" name="items[]" value="99" data-name="Facial Masks"
+            data-price="1500" data-img="/alora-website/media/p/facial-masks-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/facial-masks-600.webp" srcset="/alora-website/media/p/facial-masks-600.webp 600w, /alora-website/media/p/facial-masks-1200.webp 1200w, /alora-website/media/p/facial-masks-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Facial Masks" loading="lazy"></span>
+          <span class="bab__name">Facial Masks</span>
+          <span class="bab__price">R15,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="accessories">
+          <input type="checkbox" name="items[]" value="72" data-name="Faith Keychain"
+            data-price="3000" data-img="/alora-website/media/p/faith-keychain-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/faith-keychain-600.webp" srcset="/alora-website/media/p/faith-keychain-600.webp 600w, /alora-website/media/p/faith-keychain-1200.webp 1200w, /alora-website/media/p/faith-keychain-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Faith Keychain" loading="lazy"></span>
+          <span class="bab__name">Faith Keychain</span>
+          <span class="bab__price">R30,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="home-glow">
+          <input type="checkbox" name="items[]" value="169" data-name="Father Dad Protection Mug"
+            data-price="6000" data-img="/alora-website/media/p/father-dad-protection-mug-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/father-dad-protection-mug-600.webp" srcset="/alora-website/media/p/father-dad-protection-mug-600.webp 600w, /alora-website/media/p/father-dad-protection-mug-1200.webp 1200w, /alora-website/media/p/father-dad-protection-mug-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Father Dad Protection Mug" loading="lazy"></span>
+          <span class="bab__name">Father Dad Protection Mug</span>
+          <span class="bab__price">R60,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="home-glow">
+          <input type="checkbox" name="items[]" value="139" data-name="Flamingo UV DTF"
+            data-price="12000" data-img="/alora-website/media/p/flamingo-uv-dtf-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/flamingo-uv-dtf-600.webp" srcset="/alora-website/media/p/flamingo-uv-dtf-600.webp 600w, /alora-website/media/p/flamingo-uv-dtf-1200.webp 1200w, /alora-website/media/p/flamingo-uv-dtf-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Flamingo UV DTF" loading="lazy"></span>
+          <span class="bab__name">Flamingo UV DTF</span>
+          <span class="bab__price">R120,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="home-glow">
+          <input type="checkbox" name="items[]" value="138" data-name="Flamingo UV DTF 2"
+            data-price="12000" data-img="/alora-website/media/p/flamingo-uv-dtf-2-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/flamingo-uv-dtf-2-600.webp" srcset="/alora-website/media/p/flamingo-uv-dtf-2-600.webp 600w, /alora-website/media/p/flamingo-uv-dtf-2-1200.webp 1200w, /alora-website/media/p/flamingo-uv-dtf-2-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Flamingo UV DTF 2" loading="lazy"></span>
+          <span class="bab__name">Flamingo UV DTF 2</span>
+          <span class="bab__price">R120,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="stationary-lovers">
+          <input type="checkbox" name="items[]" value="155" data-name="Gold Baby Chick Bookmark"
+            data-price="4000" data-img="/alora-website/media/p/gold-baby-chick-bookmark-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/gold-baby-chick-bookmark-600.webp" srcset="/alora-website/media/p/gold-baby-chick-bookmark-600.webp 600w, /alora-website/media/p/gold-baby-chick-bookmark-1200.webp 1200w, /alora-website/media/p/gold-baby-chick-bookmark-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Gold Baby Chick Bookmark" loading="lazy"></span>
+          <span class="bab__name">Gold Baby Chick Bookmark</span>
+          <span class="bab__price">R40,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="accessories">
+          <input type="checkbox" name="items[]" value="68" data-name="Gold-n-Turquoise Bud"
+            data-price="4000" data-img="/alora-website/media/p/gold-n-turquoise-bud-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/gold-n-turquoise-bud-600.webp" srcset="/alora-website/media/p/gold-n-turquoise-bud-600.webp 600w, /alora-website/media/p/gold-n-turquoise-bud-1200.webp 1200w, /alora-website/media/p/gold-n-turquoise-bud-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Gold-n-Turquoise Bud" loading="lazy"></span>
+          <span class="bab__name">Gold-n-Turquoise Bud</span>
+          <span class="bab__price">R40,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="accessories">
+          <input type="checkbox" name="items[]" value="49" data-name="Golden Brown"
+            data-price="4000" data-img="/alora-website/media/p/golden-brown-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/golden-brown-600.webp" srcset="/alora-website/media/p/golden-brown-600.webp 600w, /alora-website/media/p/golden-brown-1200.webp 1200w, /alora-website/media/p/golden-brown-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Golden Brown" loading="lazy"></span>
+          <span class="bab__name">Golden Brown</span>
+          <span class="bab__price">R40,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="accessories">
+          <input type="checkbox" name="items[]" value="41" data-name="Golden Flower"
+            data-price="4000" data-img="/alora-website/media/p/golden-flower-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/golden-flower-600.webp" srcset="/alora-website/media/p/golden-flower-600.webp 600w, /alora-website/media/p/golden-flower-1200.webp 1200w, /alora-website/media/p/golden-flower-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Golden Flower" loading="lazy"></span>
+          <span class="bab__name">Golden Flower</span>
+          <span class="bab__price">R40,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="nails">
+          <input type="checkbox" name="items[]" value="15" data-name="Greek Gold"
+            data-price="8000" data-img="/alora-website/media/p/greek-gold-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/greek-gold-600.webp" srcset="/alora-website/media/p/greek-gold-600.webp 600w, /alora-website/media/p/greek-gold-1200.webp 1200w, /alora-website/media/p/greek-gold-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Greek Gold" loading="lazy"></span>
+          <span class="bab__name">Greek Gold</span>
+          <span class="bab__price">R80,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="stationary-lovers">
+          <input type="checkbox" name="items[]" value="152" data-name="Green Glitter Frog Bookmark"
+            data-price="4000" data-img="/alora-website/media/p/green-glitter-frog-bookmark-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/green-glitter-frog-bookmark-600.webp" srcset="/alora-website/media/p/green-glitter-frog-bookmark-600.webp 600w, /alora-website/media/p/green-glitter-frog-bookmark-1200.webp 1200w, /alora-website/media/p/green-glitter-frog-bookmark-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Green Glitter Frog Bookmark" loading="lazy"></span>
+          <span class="bab__name">Green Glitter Frog Bookmark</span>
+          <span class="bab__price">R40,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="accessories">
+          <input type="checkbox" name="items[]" value="30" data-name="Green Hoops"
+            data-price="4000" data-img="/alora-website/media/p/green-hoops-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/green-hoops-600.webp" srcset="/alora-website/media/p/green-hoops-600.webp 600w, /alora-website/media/p/green-hoops-1200.webp 1200w, /alora-website/media/p/green-hoops-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Green Hoops" loading="lazy"></span>
+          <span class="bab__name">Green Hoops</span>
+          <span class="bab__price">R40,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="accessories">
+          <input type="checkbox" name="items[]" value="61" data-name="Green Rainbow Hoops"
+            data-price="4000" data-img="/alora-website/media/p/green-rainbow-hoops-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/green-rainbow-hoops-600.webp" srcset="/alora-website/media/p/green-rainbow-hoops-600.webp 600w, /alora-website/media/p/green-rainbow-hoops-1200.webp 1200w, /alora-website/media/p/green-rainbow-hoops-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Green Rainbow Hoops" loading="lazy"></span>
+          <span class="bab__name">Green Rainbow Hoops</span>
+          <span class="bab__price">R40,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="accessories">
+          <input type="checkbox" name="items[]" value="24" data-name="Green Roses"
+            data-price="4000" data-img="/alora-website/media/p/green-roses-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/green-roses-600.webp" srcset="/alora-website/media/p/green-roses-600.webp 600w, /alora-website/media/p/green-roses-1200.webp 1200w, /alora-website/media/p/green-roses-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Green Roses" loading="lazy"></span>
+          <span class="bab__name">Green Roses</span>
+          <span class="bab__price">R40,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="accessories">
+          <input type="checkbox" name="items[]" value="51" data-name="Green-Beed Glamour"
+            data-price="4000" data-img="/alora-website/media/p/green-beed-glamour-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/green-beed-glamour-600.webp" srcset="/alora-website/media/p/green-beed-glamour-600.webp 600w, /alora-website/media/p/green-beed-glamour-1200.webp 1200w, /alora-website/media/p/green-beed-glamour-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Green-Beed Glamour" loading="lazy"></span>
+          <span class="bab__name">Green-Beed Glamour</span>
+          <span class="bab__price">R40,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="nails">
+          <input type="checkbox" name="items[]" value="81" data-name="Hand Cream"
+            data-price="1500" data-img="/alora-website/media/p/hand-cream-600.webp" data-cut="0">
+          <span class="bab__img"><img src="/alora-website/media/p/hand-cream-600.webp" srcset="/alora-website/media/p/hand-cream-600.webp 600w, /alora-website/media/p/hand-cream-1200.webp 1200w, /alora-website/media/p/hand-cream-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Hand Cream" loading="lazy"></span>
+          <span class="bab__name">Hand Cream</span>
+          <span class="bab__price">R15,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="stationary-lovers">
+          <input type="checkbox" name="items[]" value="150" data-name="Heaven Declare Red Glitter Bookmark"
+            data-price="4000" data-img="/alora-website/media/p/heaven-declare-red-glitter-bookmark-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/heaven-declare-red-glitter-bookmark-600.webp" srcset="/alora-website/media/p/heaven-declare-red-glitter-bookmark-600.webp 600w, /alora-website/media/p/heaven-declare-red-glitter-bookmark-1200.webp 1200w, /alora-website/media/p/heaven-declare-red-glitter-bookmark-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Heaven Declare Red Glitter Bookmark" loading="lazy"></span>
+          <span class="bab__name">Heaven Declare Red Glitter Bookmark</span>
+          <span class="bab__price">R40,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="bath-body">
+          <input type="checkbox" name="items[]" value="90" data-name="Hexagon Bath Salts"
+            data-price="1500" data-img="/alora-website/media/p/hexagon-bath-salts-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/hexagon-bath-salts-600.webp" srcset="/alora-website/media/p/hexagon-bath-salts-600.webp 600w, /alora-website/media/p/hexagon-bath-salts-1200.webp 1200w, /alora-website/media/p/hexagon-bath-salts-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Hexagon Bath Salts" loading="lazy"></span>
+          <span class="bab__name">Hexagon Bath Salts</span>
+          <span class="bab__price">R15,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="home-glow ready-packed-gifts">
+          <input type="checkbox" name="items[]" value="161" data-name="Holly Jolly Scrunchie Tumbler Combo"
+            data-price="13000" data-img="/alora-website/media/p/holly-jolly-scrunchie-tumbler-combo-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/holly-jolly-scrunchie-tumbler-combo-600.webp" srcset="/alora-website/media/p/holly-jolly-scrunchie-tumbler-combo-600.webp 600w, /alora-website/media/p/holly-jolly-scrunchie-tumbler-combo-1200.webp 1200w, /alora-website/media/p/holly-jolly-scrunchie-tumbler-combo-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Holly Jolly Scrunchie Tumbler Combo" loading="lazy"></span>
+          <span class="bab__name">Holly Jolly Scrunchie Tumbler Combo</span>
+          <span class="bab__price">R130,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="accessories">
+          <input type="checkbox" name="items[]" value="56" data-name="Honeybee Hoops"
+            data-price="4000" data-img="/alora-website/media/p/honeybee-hoops-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/honeybee-hoops-600.webp" srcset="/alora-website/media/p/honeybee-hoops-600.webp 600w, /alora-website/media/p/honeybee-hoops-1200.webp 1200w, /alora-website/media/p/honeybee-hoops-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Honeybee Hoops" loading="lazy"></span>
+          <span class="bab__name">Honeybee Hoops</span>
+          <span class="bab__price">R40,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="home-glow ready-packed-gifts">
+          <input type="checkbox" name="items[]" value="168" data-name="Horse Bookmark and Scrunchie Combo"
+            data-price="14000" data-img="/alora-website/media/p/horse-bookmark-and-scrunchie-combo-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/horse-bookmark-and-scrunchie-combo-600.webp" srcset="/alora-website/media/p/horse-bookmark-and-scrunchie-combo-600.webp 600w, /alora-website/media/p/horse-bookmark-and-scrunchie-combo-1200.webp 1200w, /alora-website/media/p/horse-bookmark-and-scrunchie-combo-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Horse Bookmark and Scrunchie Combo" loading="lazy"></span>
+          <span class="bab__name">Horse Bookmark and Scrunchie Combo</span>
+          <span class="bab__price">R140,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="accessories">
+          <input type="checkbox" name="items[]" value="39" data-name="I-Am-Groot"
+            data-price="4000" data-img="/alora-website/media/p/i-am-groot-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/i-am-groot-600.webp" srcset="/alora-website/media/p/i-am-groot-600.webp 600w, /alora-website/media/p/i-am-groot-1200.webp 1200w, /alora-website/media/p/i-am-groot-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="I-Am-Groot" loading="lazy"></span>
+          <span class="bab__name">I-Am-Groot</span>
+          <span class="bab__price">R40,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="bath-body">
+          <input type="checkbox" name="items[]" value="101" data-name="In The Stars 2ml"
+            data-price="1500" data-img="/alora-website/media/p/in-the-stars-2ml-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/in-the-stars-2ml-600.webp" srcset="/alora-website/media/p/in-the-stars-2ml-600.webp 600w, /alora-website/media/p/in-the-stars-2ml-1200.webp 1200w, /alora-website/media/p/in-the-stars-2ml-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="In The Stars 2ml" loading="lazy"></span>
+          <span class="bab__name">In The Stars 2ml</span>
+          <span class="bab__price">R15,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="home-glow">
+          <input type="checkbox" name="items[]" value="140" data-name="Its A Good Day To Learn UV DTF"
+            data-price="10000" data-img="/alora-website/media/p/its-a-good-day-to-learn-uv-dtf-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/its-a-good-day-to-learn-uv-dtf-600.webp" srcset="/alora-website/media/p/its-a-good-day-to-learn-uv-dtf-600.webp 600w, /alora-website/media/p/its-a-good-day-to-learn-uv-dtf-1200.webp 1200w, /alora-website/media/p/its-a-good-day-to-learn-uv-dtf-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Its A Good Day To Learn UV DTF" loading="lazy"></span>
+          <span class="bab__name">Its A Good Day To Learn UV DTF</span>
+          <span class="bab__price">R100,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="bath-body">
+          <input type="checkbox" name="items[]" value="95" data-name="Large Heart Hand Soaps"
+            data-price="1000" data-img="/alora-website/media/p/large-heart-hand-soaps-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/large-heart-hand-soaps-600.webp" srcset="/alora-website/media/p/large-heart-hand-soaps-600.webp 600w, /alora-website/media/p/large-heart-hand-soaps-1200.webp 1200w, /alora-website/media/p/large-heart-hand-soaps-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Large Heart Hand Soaps" loading="lazy"></span>
+          <span class="bab__name">Large Heart Hand Soaps</span>
+          <span class="bab__price">R10,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="bath-body">
+          <input type="checkbox" name="items[]" value="79" data-name="Lash Cleaner 2ml"
+            data-price="1000" data-img="/alora-website/media/p/lash-cleaner-2ml-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/lash-cleaner-2ml-600.webp" srcset="/alora-website/media/p/lash-cleaner-2ml-600.webp 600w, /alora-website/media/p/lash-cleaner-2ml-1200.webp 1200w, /alora-website/media/p/lash-cleaner-2ml-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Lash Cleaner 2ml" loading="lazy"></span>
+          <span class="bab__name">Lash Cleaner 2ml</span>
+          <span class="bab__price">R10,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="bath-body">
+          <input type="checkbox" name="items[]" value="97" data-name="Lip Mask"
+            data-price="1500" data-img="/alora-website/media/p/lip-mask-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/lip-mask-600.webp" srcset="/alora-website/media/p/lip-mask-600.webp 600w, /alora-website/media/p/lip-mask-1200.webp 1200w, /alora-website/media/p/lip-mask-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Lip Mask" loading="lazy"></span>
+          <span class="bab__name">Lip Mask</span>
+          <span class="bab__price">R15,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="nails">
+          <input type="checkbox" name="items[]" value="21" data-name="Majestic Blend"
+            data-price="8000" data-img="/alora-website/media/p/majestic-blend-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/majestic-blend-600.webp" srcset="/alora-website/media/p/majestic-blend-600.webp 600w, /alora-website/media/p/majestic-blend-1200.webp 1200w, /alora-website/media/p/majestic-blend-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Majestic Blend" loading="lazy"></span>
+          <span class="bab__name">Majestic Blend</span>
+          <span class="bab__price">R80,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="bath-body">
+          <input type="checkbox" name="items[]" value="91" data-name="Medium Bath Salts"
+            data-price="1000" data-img="/alora-website/media/p/medium-bath-salts-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/medium-bath-salts-600.webp" srcset="/alora-website/media/p/medium-bath-salts-600.webp 600w, /alora-website/media/p/medium-bath-salts-1200.webp 1200w, /alora-website/media/p/medium-bath-salts-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Medium Bath Salts" loading="lazy"></span>
+          <span class="bab__name">Medium Bath Salts</span>
+          <span class="bab__price">R10,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="bath-body">
+          <input type="checkbox" name="items[]" value="96" data-name="Medium Heart Hand Soaps"
+            data-price="1000" data-img="/alora-website/media/p/medium-heart-hand-soaps-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/medium-heart-hand-soaps-600.webp" srcset="/alora-website/media/p/medium-heart-hand-soaps-600.webp 600w, /alora-website/media/p/medium-heart-hand-soaps-1200.webp 1200w, /alora-website/media/p/medium-heart-hand-soaps-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Medium Heart Hand Soaps" loading="lazy"></span>
+          <span class="bab__name">Medium Heart Hand Soaps</span>
+          <span class="bab__price">R10,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="home-glow">
+          <input type="checkbox" name="items[]" value="172" data-name="Merry Christmas Tumbler"
+            data-price="8000" data-img="/alora-website/media/p/merry-christmas-tumbler-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/merry-christmas-tumbler-600.webp" srcset="/alora-website/media/p/merry-christmas-tumbler-600.webp 600w, /alora-website/media/p/merry-christmas-tumbler-1200.webp 1200w, /alora-website/media/p/merry-christmas-tumbler-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Merry Christmas Tumbler" loading="lazy"></span>
+          <span class="bab__name">Merry Christmas Tumbler</span>
+          <span class="bab__price">R80,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="accessories">
+          <input type="checkbox" name="items[]" value="70" data-name="Mom Keychain"
+            data-price="3000" data-img="/alora-website/media/p/mom-keychain-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/mom-keychain-600.webp" srcset="/alora-website/media/p/mom-keychain-600.webp 600w, /alora-website/media/p/mom-keychain-1200.webp 1200w, /alora-website/media/p/mom-keychain-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Mom Keychain" loading="lazy"></span>
+          <span class="bab__name">Mom Keychain</span>
+          <span class="bab__price">R30,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="home-glow">
+          <input type="checkbox" name="items[]" value="106" data-name="Moroccan UV DTF"
+            data-price="12000" data-img="/alora-website/media/p/moroccan-uv-dtf-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/moroccan-uv-dtf-600.webp" srcset="/alora-website/media/p/moroccan-uv-dtf-600.webp 600w, /alora-website/media/p/moroccan-uv-dtf-1200.webp 1200w, /alora-website/media/p/moroccan-uv-dtf-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Moroccan UV DTF" loading="lazy"></span>
+          <span class="bab__name">Moroccan UV DTF</span>
+          <span class="bab__price">R120,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="home-glow">
+          <input type="checkbox" name="items[]" value="141" data-name="Moroccan UV DTF 2"
+            data-price="12000" data-img="/alora-website/media/p/moroccan-uv-dtf-2-600.webp" data-cut="0">
+          <span class="bab__img"><img src="/alora-website/media/p/moroccan-uv-dtf-2-600.webp" srcset="/alora-website/media/p/moroccan-uv-dtf-2-600.webp 600w, /alora-website/media/p/moroccan-uv-dtf-2-1200.webp 1200w, /alora-website/media/p/moroccan-uv-dtf-2-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Moroccan UV DTF 2" loading="lazy"></span>
+          <span class="bab__name">Moroccan UV DTF 2</span>
+          <span class="bab__price">R120,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="home-glow">
+          <input type="checkbox" name="items[]" value="107" data-name="Moroccan UV DTF 3"
+            data-price="12000" data-img="/alora-website/media/p/moroccan-uv-dtf-3-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/moroccan-uv-dtf-3-600.webp" srcset="/alora-website/media/p/moroccan-uv-dtf-3-600.webp 600w, /alora-website/media/p/moroccan-uv-dtf-3-1200.webp 1200w, /alora-website/media/p/moroccan-uv-dtf-3-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Moroccan UV DTF 3" loading="lazy"></span>
+          <span class="bab__name">Moroccan UV DTF 3</span>
+          <span class="bab__price">R120,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="home-glow">
+          <input type="checkbox" name="items[]" value="142" data-name="Moroccan UV DTF 4"
+            data-price="12000" data-img="/alora-website/media/p/moroccan-uv-dtf-4-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/moroccan-uv-dtf-4-600.webp" srcset="/alora-website/media/p/moroccan-uv-dtf-4-600.webp 600w, /alora-website/media/p/moroccan-uv-dtf-4-1200.webp 1200w, /alora-website/media/p/moroccan-uv-dtf-4-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Moroccan UV DTF 4" loading="lazy"></span>
+          <span class="bab__name">Moroccan UV DTF 4</span>
+          <span class="bab__price">R120,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="home-glow">
+          <input type="checkbox" name="items[]" value="108" data-name="Mushroom Tumbler"
+            data-price="12000" data-img="/alora-website/media/p/mushroom-uv-dtf-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/mushroom-uv-dtf-600.webp" srcset="/alora-website/media/p/mushroom-uv-dtf-600.webp 600w, /alora-website/media/p/mushroom-uv-dtf-1200.webp 1200w, /alora-website/media/p/mushroom-uv-dtf-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Mushroom Tumbler" loading="lazy"></span>
+          <span class="bab__name">Mushroom Tumbler</span>
+          <span class="bab__price">R120,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="nails">
+          <input type="checkbox" name="items[]" value="17" data-name="Mystery Spice"
+            data-price="8000" data-img="/alora-website/media/p/mystery-spice-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/mystery-spice-600.webp" srcset="/alora-website/media/p/mystery-spice-600.webp 600w, /alora-website/media/p/mystery-spice-1200.webp 1200w, /alora-website/media/p/mystery-spice-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Mystery Spice" loading="lazy"></span>
+          <span class="bab__name">Mystery Spice</span>
+          <span class="bab__price">R80,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="nails">
+          <input type="checkbox" name="items[]" value="19" data-name="Mystery-Thunder"
+            data-price="8000" data-img="/alora-website/media/p/mystery-thunder-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/mystery-thunder-600.webp" srcset="/alora-website/media/p/mystery-thunder-600.webp 600w, /alora-website/media/p/mystery-thunder-1200.webp 1200w, /alora-website/media/p/mystery-thunder-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Mystery-Thunder" loading="lazy"></span>
+          <span class="bab__name">Mystery-Thunder</span>
+          <span class="bab__price">R80,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="nails">
+          <input type="checkbox" name="items[]" value="80" data-name="Nail Glue"
+            data-price="1500" data-img="/alora-website/media/p/nail-glue-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/nail-glue-600.webp" srcset="/alora-website/media/p/nail-glue-600.webp 600w, /alora-website/media/p/nail-glue-1200.webp 1200w, /alora-website/media/p/nail-glue-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Nail Glue" loading="lazy"></span>
+          <span class="bab__name">Nail Glue</span>
+          <span class="bab__price">R15,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="accessories">
+          <input type="checkbox" name="items[]" value="55" data-name="Ocean Blue Hoops"
+            data-price="4000" data-img="/alora-website/media/p/ocean-blue-hoops-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/ocean-blue-hoops-600.webp" srcset="/alora-website/media/p/ocean-blue-hoops-600.webp 600w, /alora-website/media/p/ocean-blue-hoops-1200.webp 1200w, /alora-website/media/p/ocean-blue-hoops-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Ocean Blue Hoops" loading="lazy"></span>
+          <span class="bab__name">Ocean Blue Hoops</span>
+          <span class="bab__price">R40,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="home-glow">
+          <input type="checkbox" name="items[]" value="109" data-name="Orange Pink Book UV DTF"
+            data-price="12000" data-img="/alora-website/media/p/orange-pink-book-uv-dtf-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/orange-pink-book-uv-dtf-600.webp" srcset="/alora-website/media/p/orange-pink-book-uv-dtf-600.webp 600w, /alora-website/media/p/orange-pink-book-uv-dtf-1200.webp 1200w, /alora-website/media/p/orange-pink-book-uv-dtf-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Orange Pink Book UV DTF" loading="lazy"></span>
+          <span class="bab__name">Orange Pink Book UV DTF</span>
+          <span class="bab__price">R120,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="home-glow ready-packed-gifts">
+          <input type="checkbox" name="items[]" value="175" data-name="Orange Senorita Tumbler Scrunchie and Bookmark combo"
+            data-price="14000" data-img="/alora-website/media/p/orange-senorita-tumbler-scrunchie-and-bookmark-combo-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/orange-senorita-tumbler-scrunchie-and-bookmark-combo-600.webp" srcset="/alora-website/media/p/orange-senorita-tumbler-scrunchie-and-bookmark-combo-600.webp 600w, /alora-website/media/p/orange-senorita-tumbler-scrunchie-and-bookmark-combo-1200.webp 1200w, /alora-website/media/p/orange-senorita-tumbler-scrunchie-and-bookmark-combo-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Orange Senorita Tumbler Scrunchie and Bookmark combo" loading="lazy"></span>
+          <span class="bab__name">Orange Senorita Tumbler Scrunchie and Bookmark combo</span>
+          <span class="bab__price">R140,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="home-glow">
+          <input type="checkbox" name="items[]" value="176" data-name="Orange, Yellow and Blue Floral Tumbler"
+            data-price="12000" data-img="/alora-website/media/p/orange-yellow-and-blue-floral-tumbler-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/orange-yellow-and-blue-floral-tumbler-600.webp" srcset="/alora-website/media/p/orange-yellow-and-blue-floral-tumbler-600.webp 600w, /alora-website/media/p/orange-yellow-and-blue-floral-tumbler-1200.webp 1200w, /alora-website/media/p/orange-yellow-and-blue-floral-tumbler-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Orange, Yellow and Blue Floral Tumbler" loading="lazy"></span>
+          <span class="bab__name">Orange, Yellow and Blue Floral Tumbler</span>
+          <span class="bab__price">R120,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="home-glow">
+          <input type="checkbox" name="items[]" value="110" data-name="Owl UV DTF"
+            data-price="12000" data-img="/alora-website/media/p/owl-uv-dtf-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/owl-uv-dtf-600.webp" srcset="/alora-website/media/p/owl-uv-dtf-600.webp 600w, /alora-website/media/p/owl-uv-dtf-1200.webp 1200w, /alora-website/media/p/owl-uv-dtf-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Owl UV DTF" loading="lazy"></span>
+          <span class="bab__name">Owl UV DTF</span>
+          <span class="bab__price">R120,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="creative-corner">
+          <input type="checkbox" name="items[]" value="145" data-name="Paint-A-Picture"
+            data-price="10000" data-img="/alora-website/media/p/paint-a-picture-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/paint-a-picture-600.webp" srcset="/alora-website/media/p/paint-a-picture-600.webp 600w, /alora-website/media/p/paint-a-picture-1200.webp 1200w, /alora-website/media/p/paint-a-picture-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Paint-A-Picture" loading="lazy"></span>
+          <span class="bab__name">Paint-A-Picture</span>
+          <span class="bab__price">R100,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="creative-corner">
+          <input type="checkbox" name="items[]" value="144" data-name="Paint-A-Pot-Kit"
+            data-price="10000" data-img="/alora-website/media/p/paint-a-pot-kit-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/paint-a-pot-kit-600.webp" srcset="/alora-website/media/p/paint-a-pot-kit-600.webp 600w, /alora-website/media/p/paint-a-pot-kit-1200.webp 1200w, /alora-website/media/p/paint-a-pot-kit-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Paint-A-Pot-Kit" loading="lazy"></span>
+          <span class="bab__name">Paint-A-Pot-Kit</span>
+          <span class="bab__price">R100,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="home-glow">
+          <input type="checkbox" name="items[]" value="111" data-name="Peace Teacher Life UV DTF"
+            data-price="12000" data-img="/alora-website/media/p/peace-teacher-life-uv-dtf-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/peace-teacher-life-uv-dtf-600.webp" srcset="/alora-website/media/p/peace-teacher-life-uv-dtf-600.webp 600w, /alora-website/media/p/peace-teacher-life-uv-dtf-1200.webp 1200w, /alora-website/media/p/peace-teacher-life-uv-dtf-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Peace Teacher Life UV DTF" loading="lazy"></span>
+          <span class="bab__name">Peace Teacher Life UV DTF</span>
+          <span class="bab__price">R120,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="accessories">
+          <input type="checkbox" name="items[]" value="36" data-name="Pearl Budd"
+            data-price="4000" data-img="/alora-website/media/p/pearl-budd-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/pearl-budd-600.webp" srcset="/alora-website/media/p/pearl-budd-600.webp 600w, /alora-website/media/p/pearl-budd-1200.webp 1200w, /alora-website/media/p/pearl-budd-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Pearl Budd" loading="lazy"></span>
+          <span class="bab__name">Pearl Budd</span>
+          <span class="bab__price">R40,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="accessories">
+          <input type="checkbox" name="items[]" value="43" data-name="Petite Silver"
+            data-price="4000" data-img="/alora-website/media/p/petite-silver-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/petite-silver-600.webp" srcset="/alora-website/media/p/petite-silver-600.webp 600w, /alora-website/media/p/petite-silver-1200.webp 1200w, /alora-website/media/p/petite-silver-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Petite Silver" loading="lazy"></span>
+          <span class="bab__name">Petite Silver</span>
+          <span class="bab__price">R40,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="nails">
+          <input type="checkbox" name="items[]" value="6" data-name="Petite-Matte"
+            data-price="8000" data-img="/alora-website/media/p/petite-matt-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/petite-matt-600.webp" srcset="/alora-website/media/p/petite-matt-600.webp 600w, /alora-website/media/p/petite-matt-1200.webp 1200w, /alora-website/media/p/petite-matt-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Petite-Matte" loading="lazy"></span>
+          <span class="bab__name">Petite-Matte</span>
+          <span class="bab__price">R80,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="home-glow">
+          <input type="checkbox" name="items[]" value="177" data-name="Pink Glass Floral Tumbler"
+            data-price="12000" data-img="/alora-website/media/p/pink-glass-floral-tumbler-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/pink-glass-floral-tumbler-600.webp" srcset="/alora-website/media/p/pink-glass-floral-tumbler-600.webp 600w, /alora-website/media/p/pink-glass-floral-tumbler-1200.webp 1200w, /alora-website/media/p/pink-glass-floral-tumbler-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Pink Glass Floral Tumbler" loading="lazy"></span>
+          <span class="bab__name">Pink Glass Floral Tumbler</span>
+          <span class="bab__price">R120,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="stationary-lovers">
+          <input type="checkbox" name="items[]" value="156" data-name="Pink Glitter Cat Bookmark"
+            data-price="4000" data-img="/alora-website/media/p/pink-glitter-cat-bookmark-600.webp" data-cut="0">
+          <span class="bab__img"><img src="/alora-website/media/p/pink-glitter-cat-bookmark-600.webp" srcset="/alora-website/media/p/pink-glitter-cat-bookmark-600.webp 600w, /alora-website/media/p/pink-glitter-cat-bookmark-1200.webp 1200w, /alora-website/media/p/pink-glitter-cat-bookmark-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Pink Glitter Cat Bookmark" loading="lazy"></span>
+          <span class="bab__name">Pink Glitter Cat Bookmark</span>
+          <span class="bab__price">R40,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="accessories">
+          <input type="checkbox" name="items[]" value="29" data-name="Pink Hoops"
+            data-price="4000" data-img="/alora-website/media/p/pink-hoops-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/pink-hoops-600.webp" srcset="/alora-website/media/p/pink-hoops-600.webp 600w, /alora-website/media/p/pink-hoops-1200.webp 1200w, /alora-website/media/p/pink-hoops-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Pink Hoops" loading="lazy"></span>
+          <span class="bab__name">Pink Hoops</span>
+          <span class="bab__price">R40,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="accessories">
+          <input type="checkbox" name="items[]" value="26" data-name="Pink Roses"
+            data-price="4000" data-img="/alora-website/media/p/pink-roses-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/pink-roses-600.webp" srcset="/alora-website/media/p/pink-roses-600.webp 600w, /alora-website/media/p/pink-roses-1200.webp 1200w, /alora-website/media/p/pink-roses-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Pink Roses" loading="lazy"></span>
+          <span class="bab__name">Pink Roses</span>
+          <span class="bab__price">R40,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="nails">
+          <input type="checkbox" name="items[]" value="11" data-name="Plain Jane"
+            data-price="8000" data-img="/alora-website/media/p/poch-desire-2-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/poch-desire-2-600.webp" srcset="/alora-website/media/p/poch-desire-2-600.webp 600w, /alora-website/media/p/poch-desire-2-1200.webp 1200w, /alora-website/media/p/poch-desire-2-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Plain Jane" loading="lazy"></span>
+          <span class="bab__name">Plain Jane</span>
+          <span class="bab__price">R80,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="nails">
+          <input type="checkbox" name="items[]" value="22" data-name="Plain-Love"
+            data-price="8000" data-img="/alora-website/media/p/plain-love-600.webp" data-cut="0">
+          <span class="bab__img"><img src="/alora-website/media/p/plain-love-600.webp" srcset="/alora-website/media/p/plain-love-600.webp 600w, /alora-website/media/p/plain-love-1200.webp 1200w, /alora-website/media/p/plain-love-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Plain-Love" loading="lazy"></span>
+          <span class="bab__name">Plain-Love</span>
+          <span class="bab__price">R80,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="nails">
+          <input type="checkbox" name="items[]" value="14" data-name="Poch Desire-Black"
+            data-price="8000" data-img="/alora-website/media/p/poch-desire-black-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/poch-desire-black-600.webp" srcset="/alora-website/media/p/poch-desire-black-600.webp 600w, /alora-website/media/p/poch-desire-black-1200.webp 1200w, /alora-website/media/p/poch-desire-black-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Poch Desire-Black" loading="lazy"></span>
+          <span class="bab__name">Poch Desire-Black</span>
+          <span class="bab__price">R80,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="nails">
+          <input type="checkbox" name="items[]" value="12" data-name="Poch-Jane"
+            data-price="8000" data-img="/alora-website/media/p/poch-jane-600.webp" data-cut="0">
+          <span class="bab__img"><img src="/alora-website/media/p/poch-jane-600.webp" srcset="/alora-website/media/p/poch-jane-600.webp 600w, /alora-website/media/p/poch-jane-1200.webp 1200w, /alora-website/media/p/poch-jane-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Poch-Jane" loading="lazy"></span>
+          <span class="bab__name">Poch-Jane</span>
+          <span class="bab__price">R80,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="nails">
+          <input type="checkbox" name="items[]" value="18" data-name="Poch-ocean"
+            data-price="8000" data-img="/alora-website/media/p/poch-ocean-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/poch-ocean-600.webp" srcset="/alora-website/media/p/poch-ocean-600.webp 600w, /alora-website/media/p/poch-ocean-1200.webp 1200w, /alora-website/media/p/poch-ocean-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Poch-ocean" loading="lazy"></span>
+          <span class="bab__name">Poch-ocean</span>
+          <span class="bab__price">R80,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="nails">
+          <input type="checkbox" name="items[]" value="8" data-name="Poche Desire-Rosé"
+            data-price="8000" data-img="/alora-website/media/p/poch-desire-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/poch-desire-600.webp" srcset="/alora-website/media/p/poch-desire-600.webp 600w, /alora-website/media/p/poch-desire-1200.webp 1200w, /alora-website/media/p/poch-desire-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Poche Desire-Rosé" loading="lazy"></span>
+          <span class="bab__name">Poche Desire-Rosé</span>
+          <span class="bab__price">R80,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="home-glow ready-packed-gifts">
+          <input type="checkbox" name="items[]" value="174" data-name="Polka Dot Senorita Scrunchie and Bookmark Combo"
+            data-price="14000" data-img="/alora-website/media/p/polka-dot-senorita-scrunchie-and-bookmark-combo-600.webp" data-cut="0">
+          <span class="bab__img"><img src="/alora-website/media/p/polka-dot-senorita-scrunchie-and-bookmark-combo-600.webp" srcset="/alora-website/media/p/polka-dot-senorita-scrunchie-and-bookmark-combo-600.webp 600w, /alora-website/media/p/polka-dot-senorita-scrunchie-and-bookmark-combo-1200.webp 1200w, /alora-website/media/p/polka-dot-senorita-scrunchie-and-bookmark-combo-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Polka Dot Senorita Scrunchie and Bookmark Combo" loading="lazy"></span>
+          <span class="bab__name">Polka Dot Senorita Scrunchie and Bookmark Combo</span>
+          <span class="bab__price">R140,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="bath-body">
+          <input type="checkbox" name="items[]" value="103" data-name="Pure Red 3ml"
+            data-price="2000" data-img="/alora-website/media/p/pure-red-3ml-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/pure-red-3ml-600.webp" srcset="/alora-website/media/p/pure-red-3ml-600.webp 600w, /alora-website/media/p/pure-red-3ml-1200.webp 1200w, /alora-website/media/p/pure-red-3ml-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Pure Red 3ml" loading="lazy"></span>
+          <span class="bab__name">Pure Red 3ml</span>
+          <span class="bab__price">R20,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="home-glow ready-packed-gifts">
+          <input type="checkbox" name="items[]" value="160" data-name="Purple Floral Tumbler and Hairclip"
+            data-price="13000" data-img="/alora-website/media/p/purple-floral-tumbler-and-hairclip-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/purple-floral-tumbler-and-hairclip-600.webp" srcset="/alora-website/media/p/purple-floral-tumbler-and-hairclip-600.webp 600w, /alora-website/media/p/purple-floral-tumbler-and-hairclip-1200.webp 1200w, /alora-website/media/p/purple-floral-tumbler-and-hairclip-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Purple Floral Tumbler and Hairclip" loading="lazy"></span>
+          <span class="bab__name">Purple Floral Tumbler and Hairclip</span>
+          <span class="bab__price">R130,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="home-glow">
+          <input type="checkbox" name="items[]" value="181" data-name="Purple Glass Fynbos Tumbler"
+            data-price="12000" data-img="/alora-website/media/p/purple-glass-fynbos-tumbler-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/purple-glass-fynbos-tumbler-600.webp" srcset="/alora-website/media/p/purple-glass-fynbos-tumbler-600.webp 600w, /alora-website/media/p/purple-glass-fynbos-tumbler-1200.webp 1200w, /alora-website/media/p/purple-glass-fynbos-tumbler-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Purple Glass Fynbos Tumbler" loading="lazy"></span>
+          <span class="bab__name">Purple Glass Fynbos Tumbler</span>
+          <span class="bab__price">R120,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="stationary-lovers">
+          <input type="checkbox" name="items[]" value="151" data-name="Purple Glitter Sloth Bookmark"
+            data-price="4000" data-img="/alora-website/media/p/purple-glitter-sloth-bookmark-600.webp" data-cut="0">
+          <span class="bab__img"><img src="/alora-website/media/p/purple-glitter-sloth-bookmark-600.webp" srcset="/alora-website/media/p/purple-glitter-sloth-bookmark-600.webp 600w, /alora-website/media/p/purple-glitter-sloth-bookmark-1200.webp 1200w, /alora-website/media/p/purple-glitter-sloth-bookmark-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Purple Glitter Sloth Bookmark" loading="lazy"></span>
+          <span class="bab__name">Purple Glitter Sloth Bookmark</span>
+          <span class="bab__price">R40,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="nails">
+          <input type="checkbox" name="items[]" value="10" data-name="Queen of Hearts"
+            data-price="8000" data-img="/alora-website/media/p/creamy-love-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/creamy-love-600.webp" srcset="/alora-website/media/p/creamy-love-600.webp 600w, /alora-website/media/p/creamy-love-1200.webp 1200w, /alora-website/media/p/creamy-love-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Queen of Hearts" loading="lazy"></span>
+          <span class="bab__name">Queen of Hearts</span>
+          <span class="bab__price">R80,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="accessories">
+          <input type="checkbox" name="items[]" value="53" data-name="Rainbow Hoops V1"
+            data-price="4000" data-img="/alora-website/media/p/rainbow-hoops-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/rainbow-hoops-600.webp" srcset="/alora-website/media/p/rainbow-hoops-600.webp 600w, /alora-website/media/p/rainbow-hoops-1200.webp 1200w, /alora-website/media/p/rainbow-hoops-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Rainbow Hoops V1" loading="lazy"></span>
+          <span class="bab__name">Rainbow Hoops V1</span>
+          <span class="bab__price">R40,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="accessories">
+          <input type="checkbox" name="items[]" value="60" data-name="Rainbow Hoops V2"
+            data-price="4000" data-img="/alora-website/media/p/rainbow-hoops-v2-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/rainbow-hoops-v2-600.webp" srcset="/alora-website/media/p/rainbow-hoops-v2-600.webp 600w, /alora-website/media/p/rainbow-hoops-v2-1200.webp 1200w, /alora-website/media/p/rainbow-hoops-v2-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Rainbow Hoops V2" loading="lazy"></span>
+          <span class="bab__name">Rainbow Hoops V2</span>
+          <span class="bab__price">R40,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="stationary-lovers">
+          <input type="checkbox" name="items[]" value="163" data-name="Random Beaded Pen"
+            data-price="3000" data-img="/alora-website/media/p/random-beaded-pen-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/random-beaded-pen-600.webp" srcset="/alora-website/media/p/random-beaded-pen-600.webp 600w, /alora-website/media/p/random-beaded-pen-1200.webp 1200w, /alora-website/media/p/random-beaded-pen-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Random Beaded Pen" loading="lazy"></span>
+          <span class="bab__name">Random Beaded Pen</span>
+          <span class="bab__price">R30,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="christian-girlies">
+          <input type="checkbox" name="items[]" value="180" data-name="Random Bible Verse Design Plastic Bookmark"
+            data-price="1500" data-img="/alora-website/media/p/random-bible-verse-design-plastic-bookmark-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/random-bible-verse-design-plastic-bookmark-600.webp" srcset="/alora-website/media/p/random-bible-verse-design-plastic-bookmark-600.webp 600w, /alora-website/media/p/random-bible-verse-design-plastic-bookmark-1200.webp 1200w, /alora-website/media/p/random-bible-verse-design-plastic-bookmark-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Random Bible Verse Design Plastic Bookmark" loading="lazy"></span>
+          <span class="bab__name">Random Bible Verse Design Plastic Bookmark</span>
+          <span class="bab__price">R15,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="stationary-lovers">
+          <input type="checkbox" name="items[]" value="179" data-name="Random Design Plastic Bookmark"
+            data-price="1500" data-img="/alora-website/media/p/random-design-plastic-bookmark-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/random-design-plastic-bookmark-600.webp" srcset="/alora-website/media/p/random-design-plastic-bookmark-600.webp 600w, /alora-website/media/p/random-design-plastic-bookmark-1200.webp 1200w, /alora-website/media/p/random-design-plastic-bookmark-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Random Design Plastic Bookmark" loading="lazy"></span>
+          <span class="bab__name">Random Design Plastic Bookmark</span>
+          <span class="bab__price">R15,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="home-glow">
+          <input type="checkbox" name="items[]" value="171" data-name="Random Glass Straw"
+            data-price="1500" data-img="/alora-website/media/p/random-glass-straw-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/random-glass-straw-600.webp" srcset="/alora-website/media/p/random-glass-straw-600.webp 600w, /alora-website/media/p/random-glass-straw-1200.webp 1200w, /alora-website/media/p/random-glass-straw-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Random Glass Straw" loading="lazy"></span>
+          <span class="bab__name">Random Glass Straw</span>
+          <span class="bab__price">R15,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="stationary-lovers">
+          <input type="checkbox" name="items[]" value="173" data-name="Reading Checklist Bookmarks"
+            data-price="1000" data-img="/alora-website/media/p/reading-checklist-bookmarks-600.webp" data-cut="0">
+          <span class="bab__img"><img src="/alora-website/media/p/reading-checklist-bookmarks-600.webp" srcset="/alora-website/media/p/reading-checklist-bookmarks-600.webp 600w, /alora-website/media/p/reading-checklist-bookmarks-1200.webp 1200w, /alora-website/media/p/reading-checklist-bookmarks-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Reading Checklist Bookmarks" loading="lazy"></span>
+          <span class="bab__name">Reading Checklist Bookmarks</span>
+          <span class="bab__price">R10,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="nails">
+          <input type="checkbox" name="items[]" value="5" data-name="Sassy-Drip"
+            data-price="8000" data-img="/alora-website/media/p/sassy-drip-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/sassy-drip-600.webp" srcset="/alora-website/media/p/sassy-drip-600.webp 600w, /alora-website/media/p/sassy-drip-1200.webp 1200w, /alora-website/media/p/sassy-drip-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Sassy-Drip" loading="lazy"></span>
+          <span class="bab__name">Sassy-Drip</span>
+          <span class="bab__price">R80,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="nails">
+          <input type="checkbox" name="items[]" value="3" data-name="Sassy-Glitter Galore"
+            data-price="8000" data-img="/alora-website/media/p/sassy-glitter-galore-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/sassy-glitter-galore-600.webp" srcset="/alora-website/media/p/sassy-glitter-galore-600.webp 600w, /alora-website/media/p/sassy-glitter-galore-1200.webp 1200w, /alora-website/media/p/sassy-glitter-galore-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Sassy-Glitter Galore" loading="lazy"></span>
+          <span class="bab__name">Sassy-Glitter Galore</span>
+          <span class="bab__price">R80,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="nails">
+          <input type="checkbox" name="items[]" value="13" data-name="Sassy-Matte"
+            data-price="8000" data-img="/alora-website/media/p/sassy-matt-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/sassy-matt-600.webp" srcset="/alora-website/media/p/sassy-matt-600.webp 600w, /alora-website/media/p/sassy-matt-1200.webp 1200w, /alora-website/media/p/sassy-matt-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Sassy-Matte" loading="lazy"></span>
+          <span class="bab__name">Sassy-Matte</span>
+          <span class="bab__price">R80,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="home-glow">
+          <input type="checkbox" name="items[]" value="164" data-name="Senorita Nr 1 Tumbler"
+            data-price="10000" data-img="/alora-website/media/p/senorita-nr-1-tumbler-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/senorita-nr-1-tumbler-600.webp" srcset="/alora-website/media/p/senorita-nr-1-tumbler-600.webp 600w, /alora-website/media/p/senorita-nr-1-tumbler-1200.webp 1200w, /alora-website/media/p/senorita-nr-1-tumbler-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Senorita Nr 1 Tumbler" loading="lazy"></span>
+          <span class="bab__name">Senorita Nr 1 Tumbler</span>
+          <span class="bab__price">R100,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="bath-body">
+          <input type="checkbox" name="items[]" value="92" data-name="Silver Cap Bath Salts"
+            data-price="1500" data-img="/alora-website/media/p/silver-cap-bath-salts-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/silver-cap-bath-salts-600.webp" srcset="/alora-website/media/p/silver-cap-bath-salts-600.webp 600w, /alora-website/media/p/silver-cap-bath-salts-1200.webp 1200w, /alora-website/media/p/silver-cap-bath-salts-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Silver Cap Bath Salts" loading="lazy"></span>
+          <span class="bab__name">Silver Cap Bath Salts</span>
+          <span class="bab__price">R15,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="christian-girlies">
+          <input type="checkbox" name="items[]" value="157" data-name="Silver Glitter Fruit of the Spirit Bookmark"
+            data-price="4000" data-img="/alora-website/media/p/silver-glitter-fruit-of-the-spirit-bookmark-600.webp" data-cut="0">
+          <span class="bab__img"><img src="/alora-website/media/p/silver-glitter-fruit-of-the-spirit-bookmark-600.webp" srcset="/alora-website/media/p/silver-glitter-fruit-of-the-spirit-bookmark-600.webp 600w, /alora-website/media/p/silver-glitter-fruit-of-the-spirit-bookmark-1200.webp 1200w, /alora-website/media/p/silver-glitter-fruit-of-the-spirit-bookmark-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Silver Glitter Fruit of the Spirit Bookmark" loading="lazy"></span>
+          <span class="bab__name">Silver Glitter Fruit of the Spirit Bookmark</span>
+          <span class="bab__price">R40,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="stationary-lovers">
+          <input type="checkbox" name="items[]" value="153" data-name="Silver Glitter Goose Bookmark"
+            data-price="4000" data-img="/alora-website/media/p/silver-glitter-goose-bookmark-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/silver-glitter-goose-bookmark-600.webp" srcset="/alora-website/media/p/silver-glitter-goose-bookmark-600.webp 600w, /alora-website/media/p/silver-glitter-goose-bookmark-1200.webp 1200w, /alora-website/media/p/silver-glitter-goose-bookmark-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Silver Glitter Goose Bookmark" loading="lazy"></span>
+          <span class="bab__name">Silver Glitter Goose Bookmark</span>
+          <span class="bab__price">R40,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="home-glow">
+          <input type="checkbox" name="items[]" value="113" data-name="Sit by the Campfire UV DTF"
+            data-price="12000" data-img="/alora-website/media/p/sit-by-the-campfire-uv-dtf-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/sit-by-the-campfire-uv-dtf-600.webp" srcset="/alora-website/media/p/sit-by-the-campfire-uv-dtf-600.webp 600w, /alora-website/media/p/sit-by-the-campfire-uv-dtf-1200.webp 1200w, /alora-website/media/p/sit-by-the-campfire-uv-dtf-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Sit by the Campfire UV DTF" loading="lazy"></span>
+          <span class="bab__name">Sit by the Campfire UV DTF</span>
+          <span class="bab__price">R120,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="bath-body">
+          <input type="checkbox" name="items[]" value="86" data-name="Small Bath Salts"
+            data-price="1500" data-img="/alora-website/media/p/small-bath-salts-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/small-bath-salts-600.webp" srcset="/alora-website/media/p/small-bath-salts-600.webp 600w, /alora-website/media/p/small-bath-salts-1200.webp 1200w, /alora-website/media/p/small-bath-salts-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Small Bath Salts" loading="lazy"></span>
+          <span class="bab__name">Small Bath Salts</span>
+          <span class="bab__price">R15,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="bath-body">
+          <input type="checkbox" name="items[]" value="87" data-name="Square Bath Salts"
+            data-price="1500" data-img="/alora-website/media/p/square-bath-salts-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/square-bath-salts-600.webp" srcset="/alora-website/media/p/square-bath-salts-600.webp 600w, /alora-website/media/p/square-bath-salts-1200.webp 1200w, /alora-website/media/p/square-bath-salts-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Square Bath Salts" loading="lazy"></span>
+          <span class="bab__name">Square Bath Salts</span>
+          <span class="bab__price">R15,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="home-glow">
+          <input type="checkbox" name="items[]" value="147" data-name="Steel-Tumbler-Straw"
+            data-price="4000" data-img="/alora-website/media/p/steel-tumbler-straw-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/steel-tumbler-straw-600.webp" srcset="/alora-website/media/p/steel-tumbler-straw-600.webp 600w, /alora-website/media/p/steel-tumbler-straw-1200.webp 1200w, /alora-website/media/p/steel-tumbler-straw-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Steel-Tumbler-Straw" loading="lazy"></span>
+          <span class="bab__name">Steel-Tumbler-Straw</span>
+          <span class="bab__price">R40,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="home-glow">
+          <input type="checkbox" name="items[]" value="114" data-name="Surfer Camping UV DTF"
+            data-price="12000" data-img="/alora-website/media/p/surfer-camping-uv-dtf-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/surfer-camping-uv-dtf-600.webp" srcset="/alora-website/media/p/surfer-camping-uv-dtf-600.webp 600w, /alora-website/media/p/surfer-camping-uv-dtf-1200.webp 1200w, /alora-website/media/p/surfer-camping-uv-dtf-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Surfer Camping UV DTF" loading="lazy"></span>
+          <span class="bab__name">Surfer Camping UV DTF</span>
+          <span class="bab__price">R120,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="home-glow">
+          <input type="checkbox" name="items[]" value="115" data-name="Teach Love Inspire Small UV DTF"
+            data-price="10000" data-img="/alora-website/media/p/teach-love-inspire-small-uv-dtf-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/teach-love-inspire-small-uv-dtf-600.webp" srcset="/alora-website/media/p/teach-love-inspire-small-uv-dtf-600.webp 600w, /alora-website/media/p/teach-love-inspire-small-uv-dtf-1200.webp 1200w, /alora-website/media/p/teach-love-inspire-small-uv-dtf-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Teach Love Inspire Small UV DTF" loading="lazy"></span>
+          <span class="bab__name">Teach Love Inspire Small UV DTF</span>
+          <span class="bab__price">R100,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="home-glow">
+          <input type="checkbox" name="items[]" value="116" data-name="Teach Love Inspire Uv DTF"
+            data-price="10000" data-img="/alora-website/media/p/teach-love-inspire-uv-dtf-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/teach-love-inspire-uv-dtf-600.webp" srcset="/alora-website/media/p/teach-love-inspire-uv-dtf-600.webp 600w, /alora-website/media/p/teach-love-inspire-uv-dtf-1200.webp 1200w, /alora-website/media/p/teach-love-inspire-uv-dtf-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Teach Love Inspire Uv DTF" loading="lazy"></span>
+          <span class="bab__name">Teach Love Inspire Uv DTF</span>
+          <span class="bab__price">R100,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="home-glow">
+          <input type="checkbox" name="items[]" value="117" data-name="Teach Tiny Humans UV DTF"
+            data-price="10000" data-img="/alora-website/media/p/teach-tiny-humans-uv-dtf-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/teach-tiny-humans-uv-dtf-600.webp" srcset="/alora-website/media/p/teach-tiny-humans-uv-dtf-600.webp 600w, /alora-website/media/p/teach-tiny-humans-uv-dtf-1200.webp 1200w, /alora-website/media/p/teach-tiny-humans-uv-dtf-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Teach Tiny Humans UV DTF" loading="lazy"></span>
+          <span class="bab__name">Teach Tiny Humans UV DTF</span>
+          <span class="bab__price">R100,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="accessories">
+          <input type="checkbox" name="items[]" value="71" data-name="Teacher Keychain"
+            data-price="3000" data-img="/alora-website/media/p/teacher-keychain-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/teacher-keychain-600.webp" srcset="/alora-website/media/p/teacher-keychain-600.webp 600w, /alora-website/media/p/teacher-keychain-1200.webp 1200w, /alora-website/media/p/teacher-keychain-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Teacher Keychain" loading="lazy"></span>
+          <span class="bab__name">Teacher Keychain</span>
+          <span class="bab__price">R30,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="home-glow">
+          <input type="checkbox" name="items[]" value="167" data-name="Teacher Leopard Print Tumbler"
+            data-price="12000" data-img="/alora-website/media/p/teacher-leopard-print-tumbler-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/teacher-leopard-print-tumbler-600.webp" srcset="/alora-website/media/p/teacher-leopard-print-tumbler-600.webp 600w, /alora-website/media/p/teacher-leopard-print-tumbler-1200.webp 1200w, /alora-website/media/p/teacher-leopard-print-tumbler-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Teacher Leopard Print Tumbler" loading="lazy"></span>
+          <span class="bab__name">Teacher Leopard Print Tumbler</span>
+          <span class="bab__price">R120,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="home-glow">
+          <input type="checkbox" name="items[]" value="119" data-name="Teacher Life Green Books Tumbler"
+            data-price="12000" data-img="/alora-website/media/p/teacher-life-green-books-2-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/teacher-life-green-books-2-600.webp" srcset="/alora-website/media/p/teacher-life-green-books-2-600.webp 600w, /alora-website/media/p/teacher-life-green-books-2-1200.webp 1200w, /alora-website/media/p/teacher-life-green-books-2-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Teacher Life Green Books Tumbler" loading="lazy"></span>
+          <span class="bab__name">Teacher Life Green Books Tumbler</span>
+          <span class="bab__price">R120,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="home-glow">
+          <input type="checkbox" name="items[]" value="120" data-name="Teacher Life Pink Butterfly Tumbler"
+            data-price="12000" data-img="/alora-website/media/p/teacher-life-pink-butterfly-uv-dtf-2-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/teacher-life-pink-butterfly-uv-dtf-2-600.webp" srcset="/alora-website/media/p/teacher-life-pink-butterfly-uv-dtf-2-600.webp 600w, /alora-website/media/p/teacher-life-pink-butterfly-uv-dtf-2-1200.webp 1200w, /alora-website/media/p/teacher-life-pink-butterfly-uv-dtf-2-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Teacher Life Pink Butterfly Tumbler" loading="lazy"></span>
+          <span class="bab__name">Teacher Life Pink Butterfly Tumbler</span>
+          <span class="bab__price">R120,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="home-glow">
+          <input type="checkbox" name="items[]" value="121" data-name="Teacher Life Polka Dot Tumbler"
+            data-price="12000" data-img="/alora-website/media/p/teacher-life-polka-dot-uv-dtf-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/teacher-life-polka-dot-uv-dtf-600.webp" srcset="/alora-website/media/p/teacher-life-polka-dot-uv-dtf-600.webp 600w, /alora-website/media/p/teacher-life-polka-dot-uv-dtf-1200.webp 1200w, /alora-website/media/p/teacher-life-polka-dot-uv-dtf-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Teacher Life Polka Dot Tumbler" loading="lazy"></span>
+          <span class="bab__name">Teacher Life Polka Dot Tumbler</span>
+          <span class="bab__price">R120,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="home-glow">
+          <input type="checkbox" name="items[]" value="122" data-name="Teacher Nutrition Facts Tumbler"
+            data-price="12000" data-img="/alora-website/media/p/teacher-nutrition-facts-uv-dtf-2-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/teacher-nutrition-facts-uv-dtf-2-600.webp" srcset="/alora-website/media/p/teacher-nutrition-facts-uv-dtf-2-600.webp 600w, /alora-website/media/p/teacher-nutrition-facts-uv-dtf-2-1200.webp 1200w, /alora-website/media/p/teacher-nutrition-facts-uv-dtf-2-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Teacher Nutrition Facts Tumbler" loading="lazy"></span>
+          <span class="bab__name">Teacher Nutrition Facts Tumbler</span>
+          <span class="bab__price">R120,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="home-glow">
+          <input type="checkbox" name="items[]" value="124" data-name="Teacher UV DTF"
+            data-price="10000" data-img="/alora-website/media/p/teacher-uv-dtf-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/teacher-uv-dtf-600.webp" srcset="/alora-website/media/p/teacher-uv-dtf-600.webp 600w, /alora-website/media/p/teacher-uv-dtf-1200.webp 1200w, /alora-website/media/p/teacher-uv-dtf-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Teacher UV DTF" loading="lazy"></span>
+          <span class="bab__name">Teacher UV DTF</span>
+          <span class="bab__price">R100,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="home-glow">
+          <input type="checkbox" name="items[]" value="123" data-name="Teacher Vibes"
+            data-price="10000" data-img="/alora-website/media/p/teacher-vibes-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/teacher-vibes-600.webp" srcset="/alora-website/media/p/teacher-vibes-600.webp 600w, /alora-website/media/p/teacher-vibes-1200.webp 1200w, /alora-website/media/p/teacher-vibes-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Teacher Vibes" loading="lazy"></span>
+          <span class="bab__name">Teacher Vibes</span>
+          <span class="bab__price">R100,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="home-glow">
+          <input type="checkbox" name="items[]" value="118" data-name="Teacher-Life-FLORAL-UV-DTF"
+            data-price="12000" data-img="/alora-website/media/p/teacher-life-floral-uv-dtf-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/teacher-life-floral-uv-dtf-600.webp" srcset="/alora-website/media/p/teacher-life-floral-uv-dtf-600.webp 600w, /alora-website/media/p/teacher-life-floral-uv-dtf-1200.webp 1200w, /alora-website/media/p/teacher-life-floral-uv-dtf-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Teacher-Life-FLORAL-UV-DTF" loading="lazy"></span>
+          <span class="bab__name">Teacher-Life-FLORAL-UV-DTF</span>
+          <span class="bab__price">R120,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="home-glow">
+          <input type="checkbox" name="items[]" value="165" data-name="Teddy Bear Christmas Tumbler"
+            data-price="8000" data-img="/alora-website/media/p/teddy-bear-christmas-tumbler-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/teddy-bear-christmas-tumbler-600.webp" srcset="/alora-website/media/p/teddy-bear-christmas-tumbler-600.webp 600w, /alora-website/media/p/teddy-bear-christmas-tumbler-1200.webp 1200w, /alora-website/media/p/teddy-bear-christmas-tumbler-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Teddy Bear Christmas Tumbler" loading="lazy"></span>
+          <span class="bab__name">Teddy Bear Christmas Tumbler</span>
+          <span class="bab__price">R80,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="home-glow">
+          <input type="checkbox" name="items[]" value="125" data-name="Tumbler Straw Caps"
+            data-price="1200" data-img="/alora-website/media/p/tumbler-straw-caps-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/tumbler-straw-caps-600.webp" srcset="/alora-website/media/p/tumbler-straw-caps-600.webp 600w, /alora-website/media/p/tumbler-straw-caps-1200.webp 1200w, /alora-website/media/p/tumbler-straw-caps-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Tumbler Straw Caps" loading="lazy"></span>
+          <span class="bab__name">Tumbler Straw Caps</span>
+          <span class="bab__price">R12,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="accessories">
+          <input type="checkbox" name="items[]" value="28" data-name="Turquoise Hoops"
+            data-price="4000" data-img="/alora-website/media/p/blue-hoops-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/blue-hoops-600.webp" srcset="/alora-website/media/p/blue-hoops-600.webp 600w, /alora-website/media/p/blue-hoops-1200.webp 1200w, /alora-website/media/p/blue-hoops-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Turquoise Hoops" loading="lazy"></span>
+          <span class="bab__name">Turquoise Hoops</span>
+          <span class="bab__price">R40,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="home-glow">
+          <input type="checkbox" name="items[]" value="126" data-name="Turtle UV DTF"
+            data-price="12000" data-img="/alora-website/media/p/turtle-uv-dtf-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/turtle-uv-dtf-600.webp" srcset="/alora-website/media/p/turtle-uv-dtf-600.webp 600w, /alora-website/media/p/turtle-uv-dtf-1200.webp 1200w, /alora-website/media/p/turtle-uv-dtf-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Turtle UV DTF" loading="lazy"></span>
+          <span class="bab__name">Turtle UV DTF</span>
+          <span class="bab__price">R120,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="bath-body">
+          <input type="checkbox" name="items[]" value="102" data-name="Velvet Petals Fantasy 2ml"
+            data-price="1500" data-img="/alora-website/media/p/velvet-petals-fantasy-2ml-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/velvet-petals-fantasy-2ml-600.webp" srcset="/alora-website/media/p/velvet-petals-fantasy-2ml-600.webp 600w, /alora-website/media/p/velvet-petals-fantasy-2ml-1200.webp 1200w, /alora-website/media/p/velvet-petals-fantasy-2ml-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Velvet Petals Fantasy 2ml" loading="lazy"></span>
+          <span class="bab__name">Velvet Petals Fantasy 2ml</span>
+          <span class="bab__price">R15,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="home-glow">
+          <input type="checkbox" name="items[]" value="166" data-name="Vintage Christmas Tumbler"
+            data-price="8000" data-img="/alora-website/media/p/vintage-christmas-tumbler-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/vintage-christmas-tumbler-600.webp" srcset="/alora-website/media/p/vintage-christmas-tumbler-600.webp 600w, /alora-website/media/p/vintage-christmas-tumbler-1200.webp 1200w, /alora-website/media/p/vintage-christmas-tumbler-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Vintage Christmas Tumbler" loading="lazy"></span>
+          <span class="bab__name">Vintage Christmas Tumbler</span>
+          <span class="bab__price">R80,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="bath-body">
+          <input type="checkbox" name="items[]" value="100" data-name="Walking On The Waves 2ml"
+            data-price="1500" data-img="/alora-website/media/p/walking-on-the-waves-2ml-600.webp" data-cut="0">
+          <span class="bab__img"><img src="/alora-website/media/p/walking-on-the-waves-2ml-600.webp" srcset="/alora-website/media/p/walking-on-the-waves-2ml-600.webp 600w, /alora-website/media/p/walking-on-the-waves-2ml-1200.webp 1200w, /alora-website/media/p/walking-on-the-waves-2ml-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Walking On The Waves 2ml" loading="lazy"></span>
+          <span class="bab__name">Walking On The Waves 2ml</span>
+          <span class="bab__price">R15,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="stationary-lovers">
+          <input type="checkbox" name="items[]" value="146" data-name="Washi Tape"
+            data-price="1000" data-img="/alora-website/media/p/washi-tape-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/washi-tape-600.webp" srcset="/alora-website/media/p/washi-tape-600.webp 600w, /alora-website/media/p/washi-tape-1200.webp 1200w, /alora-website/media/p/washi-tape-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Washi Tape" loading="lazy"></span>
+          <span class="bab__name">Washi Tape</span>
+          <span class="bab__price">R10,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="home-glow">
+          <input type="checkbox" name="items[]" value="127" data-name="Weekend Forecast UV DTF"
+            data-price="12000" data-img="/alora-website/media/p/weekend-forecast-uv-dtf-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/weekend-forecast-uv-dtf-600.webp" srcset="/alora-website/media/p/weekend-forecast-uv-dtf-600.webp 600w, /alora-website/media/p/weekend-forecast-uv-dtf-1200.webp 1200w, /alora-website/media/p/weekend-forecast-uv-dtf-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Weekend Forecast UV DTF" loading="lazy"></span>
+          <span class="bab__name">Weekend Forecast UV DTF</span>
+          <span class="bab__price">R120,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="accessories">
+          <input type="checkbox" name="items[]" value="27" data-name="White Hoops"
+            data-price="4000" data-img="/alora-website/media/p/white-hoops-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/white-hoops-600.webp" srcset="/alora-website/media/p/white-hoops-600.webp 600w, /alora-website/media/p/white-hoops-1200.webp 1200w, /alora-website/media/p/white-hoops-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="White Hoops" loading="lazy"></span>
+          <span class="bab__name">White Hoops</span>
+          <span class="bab__price">R40,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="accessories">
+          <input type="checkbox" name="items[]" value="52" data-name="White Petal pearl"
+            data-price="4000" data-img="/alora-website/media/p/white-petal-pearl-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/white-petal-pearl-600.webp" srcset="/alora-website/media/p/white-petal-pearl-600.webp 600w, /alora-website/media/p/white-petal-pearl-1200.webp 1200w, /alora-website/media/p/white-petal-pearl-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="White Petal pearl" loading="lazy"></span>
+          <span class="bab__name">White Petal pearl</span>
+          <span class="bab__price">R40,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="accessories">
+          <input type="checkbox" name="items[]" value="25" data-name="White Roses"
+            data-price="4000" data-img="/alora-website/media/p/white-roses-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/white-roses-600.webp" srcset="/alora-website/media/p/white-roses-600.webp 600w, /alora-website/media/p/white-roses-1200.webp 1200w, /alora-website/media/p/white-roses-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="White Roses" loading="lazy"></span>
+          <span class="bab__name">White Roses</span>
+          <span class="bab__price">R40,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="accessories">
+          <input type="checkbox" name="items[]" value="31" data-name="Wooden Flower V1"
+            data-price="4000" data-img="/alora-website/media/p/wood-flower-earrings-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/wood-flower-earrings-600.webp" srcset="/alora-website/media/p/wood-flower-earrings-600.webp 600w, /alora-website/media/p/wood-flower-earrings-1200.webp 1200w, /alora-website/media/p/wood-flower-earrings-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Wooden Flower V1" loading="lazy"></span>
+          <span class="bab__name">Wooden Flower V1</span>
+          <span class="bab__price">R40,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="accessories">
+          <input type="checkbox" name="items[]" value="42" data-name="Wooden Flower V2"
+            data-price="4000" data-img="/alora-website/media/p/wooden-flower-v2-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/wooden-flower-v2-600.webp" srcset="/alora-website/media/p/wooden-flower-v2-600.webp 600w, /alora-website/media/p/wooden-flower-v2-1200.webp 1200w, /alora-website/media/p/wooden-flower-v2-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Wooden Flower V2" loading="lazy"></span>
+          <span class="bab__name">Wooden Flower V2</span>
+          <span class="bab__price">R40,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="accessories">
+          <input type="checkbox" name="items[]" value="45" data-name="Wooden Flower V3"
+            data-price="2000" data-img="/alora-website/media/p/wooden-flower-v3-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/wooden-flower-v3-600.webp" srcset="/alora-website/media/p/wooden-flower-v3-600.webp 600w, /alora-website/media/p/wooden-flower-v3-1200.webp 1200w, /alora-website/media/p/wooden-flower-v3-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Wooden Flower V3" loading="lazy"></span>
+          <span class="bab__name">Wooden Flower V3</span>
+          <span class="bab__price">R20,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="accessories">
+          <input type="checkbox" name="items[]" value="67" data-name="Wooden Flower V4"
+            data-price="4000" data-img="/alora-website/media/p/wooden-flower-v3-2-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/wooden-flower-v3-2-600.webp" srcset="/alora-website/media/p/wooden-flower-v3-2-600.webp 600w, /alora-website/media/p/wooden-flower-v3-2-1200.webp 1200w, /alora-website/media/p/wooden-flower-v3-2-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Wooden Flower V4" loading="lazy"></span>
+          <span class="bab__name">Wooden Flower V4</span>
+          <span class="bab__price">R40,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="accessories">
+          <input type="checkbox" name="items[]" value="32" data-name="Wooden Flower V5"
+            data-price="4000" data-img="/alora-website/media/p/wooden-protea-earrings-600.webp" data-cut="0">
+          <span class="bab__img"><img src="/alora-website/media/p/wooden-protea-earrings-600.webp" srcset="/alora-website/media/p/wooden-protea-earrings-600.webp 600w, /alora-website/media/p/wooden-protea-earrings-1200.webp 1200w, /alora-website/media/p/wooden-protea-earrings-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Wooden Flower V5" loading="lazy"></span>
+          <span class="bab__name">Wooden Flower V5</span>
+          <span class="bab__price">R40,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="accessories">
+          <input type="checkbox" name="items[]" value="50" data-name="Wooden Heart"
+            data-price="2000" data-img="/alora-website/media/p/wooden-heart-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/wooden-heart-600.webp" srcset="/alora-website/media/p/wooden-heart-600.webp 600w, /alora-website/media/p/wooden-heart-1200.webp 1200w, /alora-website/media/p/wooden-heart-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Wooden Heart" loading="lazy"></span>
+          <span class="bab__name">Wooden Heart</span>
+          <span class="bab__price">R20,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="bath-body">
+          <input type="checkbox" name="items[]" value="88" data-name="XS-Bath Salt"
+            data-price="800" data-img="/alora-website/media/p/xs-bath-salt-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/xs-bath-salt-600.webp" srcset="/alora-website/media/p/xs-bath-salt-600.webp 600w, /alora-website/media/p/xs-bath-salt-1200.webp 1200w, /alora-website/media/p/xs-bath-salt-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="XS-Bath Salt" loading="lazy"></span>
+          <span class="bab__name">XS-Bath Salt</span>
+          <span class="bab__price">R8,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+              <label class="bab__item" data-cats="accessories">
+          <input type="checkbox" name="items[]" value="65" data-name="Yellow Hoops"
+            data-price="4000" data-img="/alora-website/media/p/yellow-hoops-cut-600.webp" data-cut="1">
+          <span class="bab__img"><img src="/alora-website/media/p/yellow-hoops-600.webp" srcset="/alora-website/media/p/yellow-hoops-600.webp 600w, /alora-website/media/p/yellow-hoops-1200.webp 1200w, /alora-website/media/p/yellow-hoops-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Yellow Hoops" loading="lazy"></span>
+          <span class="bab__name">Yellow Hoops</span>
+          <span class="bab__price">R40,00</span>
+          <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+        </label>
+          </div>
+  </div>
+
+  <!-- Phones: the box total stays in reach at the bottom of the screen. -->
+  <div class="bab__bar">
+    <span class="bab__bar-txt"><strong data-bab-total-bar>R50,00</strong> <span data-bab-count-bar>0 pieces</span></span>
+    <button class="pill pill--gold" data-bab-go disabled>Add box to bag</button>
+  </div>
+</form>
+</main>
+
+<footer class="foot">
+  <div class="foot__grid">
+    <div>
+      <p class="foot__brand">ALORA</p>
+      <p class="foot__line">Where dreams meet light.<br>Chosen with love in South Africa.</p>
+      <a class="pill pill--gold" href="https://wa.me/27817371752?text=Hi%20Alora%21%20I%20have%20a%20question." target="_blank" rel="noopener">WhatsApp us</a>
+          </div>
+    <div>
+      <p class="eyebrow">Shop</p>
+      <ul>
+                  <li><a href="/alora-website/product-category/accessories/">Accessories &amp; Adornments</a></li>
+                  <li><a href="/alora-website/product-category/bath-body/">Beauty</a></li>
+                  <li><a href="/alora-website/product-category/christian-girlies/">Christian Girlies</a></li>
+                  <li><a href="/alora-website/product-category/creative-corner/">Creative Corner</a></li>
+                  <li><a href="/alora-website/product-category/home-glow/">Home Glow</a></li>
+                  <li><a href="/alora-website/product-category/nails/">Press-Ons &amp; Nail Essentials</a></li>
+                  <li><a href="/alora-website/product-category/ready-packed-gifts/">Ready Packed Gifts</a></li>
+                  <li><a href="/alora-website/product-category/stationary-lovers/">Stationery Lovers</a></li>
+              </ul>
+    </div>
+    <div>
+      <p class="eyebrow">Help</p>
+      <ul>
+        <li><a href="/build-a-box/">Build a Box</a></li>
+        <li><a href="/mystery-scoop/">Mystery Scoop</a></li>
+        <li><a href="/alora-website/about/">Our story</a></li>
+        <li><a href="/alora-website/contact/">Contact</a></li>
+        <li><a href="/alora-website/account/">My account</a></li>
+        <li><a href="/alora-website/terms/">Terms &amp; returns</a></li>
+        <li><a href="/alora-website/privacy/">Privacy (POPIA)</a></li>
+        <li><a href="tel:+27817371752">081 737 1752</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot__base">
+    <p>We only use your details to process your order and never sell them. <a href="/alora-website/privacy/">Privacy notice (POPIA)</a>.</p>
+    <p>© 2026 Alora · <a href="/alora-website/admin/">Staff login</a> · <span class="credit">Website by NFC Software Solutions</span></p>
+  </div>
+</footer>
+
+<script>window.ALORA = { csrf: "d1279b615f45d0a042595f33d53a646d2eea6f040efbdee3260921fed6c5cfd2" };</script>
+<script src="/alora-website/assets/vendor/gsap.min.js?v=1795604637" defer></script>
+<script src="/alora-website/assets/vendor/ScrollTrigger.min.js?v=1795604637" defer></script>
+<script src="/alora-website/assets/vendor/lenis.min.js?v=1795604637" defer></script>
+<script src="/alora-website/assets/js/site.js?v=1795726224" defer></script>
+</body>
+</html>
