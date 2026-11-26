@@ -13,5 +13,6 @@
     <div class="contact__card"><span class="eyebrow">Opening hours</span><strong><?= e(setting('hours')) ?></strong><span class="muted">Messages after hours are answered the next working day.</span></div>
     <?php endif ?>
   </div>
-  <?= olive_branch('contact__branch') ?>
+  <?= socials('socials--contact') ?>
+  <?= olive_sprig('contact__branch') ?>
 </section>

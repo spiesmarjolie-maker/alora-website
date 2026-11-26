@@ -110,6 +110,24 @@ $piece = function (?array $p, string $cls) {
 </section>
 <?php endif ?>
 
+<!-- 4b. Build a Box and Mystery Scoop. -->
+<section class="sec sec--specials">
+  <div class="specials">
+    <a class="special" href="/build-a-box/" data-reveal>
+      <p class="eyebrow">Made by you, packed by us</p>
+      <h2 class="display-sm">Build a <em>Box</em></h2>
+      <p>Pick anything from the shop and we pack it in a beautiful gift box. The box is R50.</p>
+      <span class="pill">Start building</span>
+    </a>
+    <a class="special special--dark" href="/mystery-scoop/" data-reveal>
+      <p class="eyebrow eyebrow--gold">Surprise, surprise</p>
+      <h2 class="display-sm">Mystery <em>Scoop</em></h2>
+      <p>A scoop of surprise goodies, hand-picked by us. R150 per scoop, choose up to 7.</p>
+      <span class="pill pill--gold">Choose my scoops</span>
+    </a>
+  </div>
+</section>
+
 <!-- 5. Personalised: dark band. -->
 <section class="band">
   <div class="band__inner" data-reveal>
@@ -126,7 +144,7 @@ $piece = function (?array $p, string $cls) {
 <!-- 6. About, in one breath. -->
 <section class="sec sec--about">
   <div class="about" data-reveal>
-    <?= olive_branch('about__branch') ?>
+    <?= olive_sprig('about__branch') ?>
     <p class="eyebrow">Our story</p>
     <h2 class="display-sm">For women, <em>by women.</em></h2>
     <p class="lead">Alora was born from a love for beautiful things, creativity and the little details that make life special. Established in 2025 as Jolie Femme, it grew into a dream of bringing beauty, pampering, thoughtful gifting and everyday luxuries together in one place.</p>

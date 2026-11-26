@@ -35,6 +35,7 @@ match (true) {
     $path === '/shop/' => require __DIR__ . '/../app/pages/shop.php',
     (bool) preg_match('#^/product-category/([a-z0-9-]+)/$#', $path, $m) => require __DIR__ . '/../app/pages/shop.php',
     (bool) preg_match('#^/product/([a-z0-9-]+)/$#', $path, $m) => require __DIR__ . '/../app/pages/product.php',
+    in_array($path, ['/mystery-scoop/', '/build-a-box/'], true) => require __DIR__ . '/../app/pages/specials.php',
     $path === '/bag/' => require __DIR__ . '/../app/pages/bag.php',
     $path === '/checkout/' => require __DIR__ . '/../app/pages/checkout.php',
     str_starts_with($path, '/account/') => require __DIR__ . '/../app/pages/account.php',

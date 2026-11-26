@@ -10,6 +10,8 @@
   <p>We use one cookie to remember your bag and login. Our visit statistics only count page views per day; they do not identify or track you. Our fonts and scripts are served from our own site, so no third party sees your visit.</p>
   <h3>Your rights</h3>
   <p>You may ask to see, correct or delete the personal information we hold about you, and unsubscribe from our emails at any time. Contact us at <a href="mailto:<?= e(setting('email')) ?>"><?= e(setting('email')) ?></a> or on <?= e(setting('phone')) ?>.</p>
+  <h3>Our designs and photos</h3>
+  <p>All products sold by Alora, and their designs, artwork, personalised work and photos, are our own. They may not be copied, replicated, reproduced or resold, in whole or in part, without our written permission.</p>
   <h3>How long we keep it</h3>
   <p>Order records are kept for five years for tax purposes. Account details are kept until you ask us to delete your account.</p>
 </div></section>

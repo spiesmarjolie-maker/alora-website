@@ -39,9 +39,9 @@ def main():
     im = Image.open(SRC).convert('RGB')
     im = im.resize((im.width * SCALE, im.height * SCALE), Image.LANCZOS).filter(ImageFilter.GaussianBlur(1.2))
     lum = im.convert('L')
-    gold = lum.point(lambda v: 255 if v > 70 else 0).filter(ImageFilter.MedianFilter(5))
-    # Close the hairline nicks left by creases in the 3D shading (grow then shrink by 2 px).
-    gold = gold.filter(ImageFilter.MaxFilter(5)).filter(ImageFilter.MinFilter(5))
+    gold = lum.point(lambda v: 255 if v > 30 else 0).filter(ImageFilter.MedianFilter(5))
+    # Close the hairline nicks left by creases in the 3D shading (grow then shrink by 4 px: also seals the crease at the top of the A).
+    gold = gold.filter(ImageFilter.MaxFilter(9)).filter(ImageFilter.MinFilter(9))
     # Bounding box from the solid shapes only, so stray JPEG specks near the edge don't widen the frame.
     x0, y0, x1, y1 = gold.filter(ImageFilter.MinFilter(5)).getbbox()
     pad = 24

@@ -37,6 +37,30 @@ function olive_branch(string $class = ''): string
 SVG;
 }
 
+/** "Delivery is not included": the active delivery options and their prices, e.g. "PUDO locker pickup R100,00 · PUDO door to door R120,00". */
+function delivery_prices(): string
+{
+    $m = q('SELECT name, price_cents FROM shipping_methods WHERE active = 1 ORDER BY sort')->fetchAll();
+    return implode(' · ', array_map(fn ($r) => e($r['name']) . ' ' . money((int) $r['price_cents']), $m));
+}
+
+/** Links to the shop's Instagram, Facebook and TikTok pages (only the ones filled in under Admin, Settings). */
+function socials(string $class = ''): string
+{
+    $icons = [
+        'instagram' => ['Instagram', '<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/>'],
+        'facebook' => ['Facebook', '<path d="M14.5 8H17V4.5h-2.5C12 4.5 10.5 6 10.5 8.6V11H8v3.5h2.5V21H14v-6.5h2.6l.4-3.5h-3V9c0-.6.4-1 .5-1z"/>'],
+        'tiktok' => ['TikTok', '<path d="M14 3v11.5a3.5 3.5 0 1 1-3-3.46M14 3c.4 2.6 2.2 4.3 5 4.5"/>'],
+    ];
+    $out = '';
+    foreach ($icons as $k => [$name, $svg]) {
+        if ($url = setting($k)) {
+            $out .= '<a href="' . e($url) . '" target="_blank" rel="noopener" aria-label="Alora on ' . $name . '"><svg viewBox="0 0 24 24" aria-hidden="true">' . $svg . '</svg><span>' . $name . '</span></a>';
+        }
+    }
+    return $out ? '<p class="socials ' . $class . '">' . $out . '</p>' : '';
+}
+
 /** A pair of gold olive sprigs with two olives each and a little sparkle: the About page sign-off. */
 function olive_sprig(string $class = ''): string
 {

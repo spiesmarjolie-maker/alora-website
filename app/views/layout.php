@@ -30,6 +30,8 @@ $msg = flash();
   <nav class="nav__links" aria-label="Main">
     <a href="/shop/">Shop</a>
     <a href="/product-category/ready-packed-gifts/">Gifts</a>
+    <a href="/build-a-box/">Build a Box</a>
+    <a href="/mystery-scoop/">Mystery Scoop</a>
     <a href="/personalised/">Personalised</a>
     <a href="/about/">About</a>
     <a href="/contact/">Contact</a>
@@ -54,6 +56,7 @@ $msg = flash();
       <p class="foot__brand">ALORA</p>
       <p class="foot__line">Where dreams meet light.<br>Chosen with love in South Africa.</p>
       <a class="pill pill--gold" href="<?= e(whatsapp_link('Hi Alora! I have a question.')) ?>" target="_blank" rel="noopener">WhatsApp us</a>
+      <?= socials('socials--foot') ?>
     </div>
     <div>
       <p class="eyebrow">Shop</p>
@@ -66,6 +69,8 @@ $msg = flash();
     <div>
       <p class="eyebrow">Help</p>
       <ul>
+        <li><a href="/build-a-box/">Build a Box</a></li>
+        <li><a href="/mystery-scoop/">Mystery Scoop</a></li>
         <li><a href="/about/">Our story</a></li>
         <li><a href="/contact/">Contact</a></li>
         <li><a href="/account/">My account</a></li>

@@ -121,10 +121,13 @@ function in_stock(array $p): bool
 }
 
 /** Products a customer can actually buy (active and priced). */
-function products(string $where = '1', array $args = [], string $order = 'p.id DESC', int $limit = 500): array
+/** Bought from their own pages (/mystery-scoop/, /build-a-box/), so they stay out of the shop grids. */
+const SPECIAL_SLUGS = "'mystery-scoop', 'build-a-box-gift-box'";
+
+function products(string $where = '1', array $args = [], string $order = 'p.id DESC', int $limit = 500, bool $withSpecials = false): array
 {
     return q("SELECT " . PRODUCT_COLS . " FROM products p
-              WHERE p.active = 1 AND p.price_cents > 0 AND ($where) ORDER BY $order LIMIT $limit", $args)->fetchAll();
+              WHERE p.active = 1 AND p.price_cents > 0 " . ($withSpecials ? "" : "AND p.slug NOT IN (" . SPECIAL_SLUGS . ")") . " AND ($where) ORDER BY $order LIMIT $limit", $args)->fetchAll();
 }
 
 // ---- Bag (stored in the session as product id => quantity) -------------------
@@ -148,7 +151,7 @@ function bag_lines(): array
     }
     $ids = implode(',', array_map('intval', array_keys($bag)));
     $lines = [];
-    foreach (products("p.id IN ($ids)") as $p) {
+    foreach (products("p.id IN ($ids)", [], "p.id DESC", 500, true) as $p) {
         $qty = $bag[$p['id']];
         if ($p['stock_qty'] !== null) {
             $qty = min($qty, (int) $p['stock_qty']);

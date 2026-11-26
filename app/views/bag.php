@@ -31,7 +31,7 @@
 
     <aside class="bag__sum">
       <p class="row"><span>Subtotal</span><strong><?= money($subtotal) ?></strong></p>
-      <p class="muted">Delivery options at checkout:</p>
+      <p class="note-delivery"><strong>Delivery is not included</strong> in the prices above. Choose your delivery option at checkout:</p>
       <ul class="muted">
         <?php foreach ($shipping as $s): ?><li><?= e($s['name']) ?>: <?= money((int) $s['price_cents']) ?></li><?php endforeach ?>
       </ul>

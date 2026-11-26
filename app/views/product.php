@@ -48,7 +48,7 @@ $schema = [
 
       <ul class="pd__notes">
         <li>Lovingly packed by hand</li>
-        <li>PUDO locker or door-to-door delivery across South Africa</li>
+        <li><strong>Delivery is not included in the price.</strong> It is added at checkout: <?= delivery_prices() ?>.</li>
         <li>Want it personalised? <a href="<?= e(whatsapp_link("Hi Alora! Can {$p['name']} be personalised?")) ?>">Just ask</a></li>
       </ul>
 

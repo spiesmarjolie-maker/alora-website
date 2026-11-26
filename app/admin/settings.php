@@ -1,7 +1,8 @@
 <?php
 /** Shop settings and Payfast keys (owner only). Secret fields are write-only: leaving them empty keeps the saved value. */
 const PLAIN_SETTINGS = ['shop_name', 'tagline', 'phone', 'whatsapp', 'email', 'orders_to', 'mail_from', 'site_url',
-    'payfast_merchant_id', 'payfast_merchant_key', 'payfast_sandbox_id', 'payfast_sandbox_key'];
+    'payfast_merchant_id', 'payfast_merchant_key', 'payfast_sandbox_id', 'payfast_sandbox_key',
+    'instagram', 'facebook', 'tiktok'];
 const SECRET_SETTINGS = ['payfast_passphrase', 'payfast_sandbox_passphrase'];
 
 if ($method === 'POST') {
@@ -9,6 +10,9 @@ if ($method === 'POST') {
     $bad = [];
     foreach (['email', 'orders_to', 'mail_from'] as $k) {
         if ($in($k) !== '' && !filter_var($in($k), FILTER_VALIDATE_EMAIL)) $bad[] = "“$k” is not a valid email";
+    }
+    foreach (['instagram', 'facebook', 'tiktok'] as $k) {
+        if ($in($k) !== '' && !preg_match('#^https://(www\.)?(instagram\.com|facebook\.com|fb\.com|tiktok\.com)/\S+$#i', $in($k))) $bad[] = "the $k link must be a full https:// link to your page";
     }
     if ($in('site_url') !== '' && !preg_match('#^https://[^/\s]+$#', rtrim($in('site_url'), '/'))) $bad[] = 'the web address must look like https://example.co.za';
     $mode = ($_POST['payfast_mode'] ?? '') === 'live' ? 'live' : 'sandbox';

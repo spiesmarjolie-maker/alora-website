@@ -30,6 +30,11 @@ if ($method === 'POST') {
         'name' => $v('name', 120), 'email' => $v('email', 160), 'phone' => preg_replace('/[^\d+ ]/', '', $v('phone', 30)),
         'note' => $v('note', 1000), 'customer_id' => $_SESSION['customer_id'] ?? null,
     ];
+    $boxId = (int) q("SELECT id FROM products WHERE slug = 'build-a-box-gift-box'")->fetchColumn();
+    if (!empty($_SESSION['box']) && isset(bag()[$boxId])) {
+        $buyer['note'] = trim('BUILD A BOX, pack together: ' . implode(', ', $_SESSION['box']) . "
+" . $buyer['note']);
+    }
     $ship = null;
     foreach ($methods as $m) {
         if ((int) $m['id'] === (int) ($_POST['ship'] ?? 0)) {

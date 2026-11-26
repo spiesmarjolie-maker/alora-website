@@ -20,6 +20,14 @@ $secret = fn ($k, $label) => '<label>' . $label . ' <small class="muted">' . ($h
   </section>
 
   <section class="panel stack">
+    <h2>Social media</h2>
+    <p class="muted small">Full links to your pages. Empty ones are simply not shown on the site.</p>
+    <?= $f('instagram', 'Instagram', 'e.g. https://www.instagram.com/yourpage') ?>
+    <?= $f('facebook', 'Facebook', 'e.g. https://www.facebook.com/yourpage') ?>
+    <?= $f('tiktok', 'TikTok', 'e.g. https://www.tiktok.com/@yourpage') ?>
+  </section>
+
+  <section class="panel stack">
     <h2>Payfast</h2>
     <fieldset class="mode">
       <label class="chk"><input type="radio" name="payfast_mode" value="sandbox" <?= $mode !== 'live' ? 'checked' : '' ?>> <span><strong>Test mode (sandbox)</strong><br><small class="muted">No real money moves.</small></span></label>
