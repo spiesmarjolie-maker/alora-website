@@ -106,9 +106,15 @@
       cleared = clear;
       // The last layer on screen: the satin film, or the plain ivory when there is no film.
       gsap.to($('.film__video', stage) || $('.film__ivory', stage),
-        { autoAlpha: clear ? 0 : 1, duration: clear ? 1 : 0.4, ease: 'sine.inOut', overwrite: 'auto' });
+        { autoAlpha: clear ? 0 : 1, duration: clear ? 1.8 : 0.4, ease: 'sine.inOut', overwrite: 'auto' });
       gsap.set(stage, { backgroundColor: clear ? 'transparent' : '', pointerEvents: clear ? 'none' : '' });
+      // "New in" stays out of sight while the film plays, then rises softly into view as the satin melts away.
+      if (newIn) gsap.to(newIn, clear
+        ? { autoAlpha: 1, y: 0, duration: 1.6, delay: 0.35, ease: 'power2.out', overwrite: 'auto' }
+        : { autoAlpha: 0, y: 28, duration: 0.3, overwrite: 'auto' });
     };
+    const newIn = $('.sec--new');
+    if (newIn) gsap.set(newIn, { autoAlpha: 0, y: 28 });
     const tl = gsap.timeline({
       defaults: { ease: 'power2.inOut', duration: 1 },
       scrollTrigger: {

@@ -142,10 +142,10 @@ html:not(.js) .film { background: #000; }
 .is-dark-top { background: #000; }
 .is-dark-top main { background: var(--ivory); }
 .is-dark-top .nav { margin-bottom: -66px; }
-.film__stage { position: relative; height: 100svh; min-height: 560px; overflow: hidden; background: #000; z-index: 5; }
+.film__stage { position: relative; height: 100svh; height: 100lvh; min-height: 560px; overflow: hidden; background: #000; z-index: 5; }
 /* The film's last screen overlaps "New in", so when the stage turns clear the shop is already in place. */
-.js .film { margin-bottom: -100svh; }
-.js .sec--new { min-height: 100svh; }
+.js .film { margin-bottom: -100svh; margin-bottom: -100lvh; }
+.js .sec--new { min-height: 100svh; min-height: 100lvh; }
 .film__glow { position: absolute; left: 50%; top: 42%; width: min(130vw, 900px); aspect-ratio: 1; transform: translate(-50%, -50%); border-radius: 50%; z-index: 1;
   background: radial-gradient(circle, rgba(241, 217, 166, .34) 0%, rgba(201, 164, 106, .16) 32%, rgba(201, 164, 106, 0) 66%); pointer-events: none; }
 @media (min-width: 900px) { .film__glow { left: 34%; top: 50%; } }
@@ -187,6 +187,8 @@ html:not(.js) .film__video { display: none; }
 @media (min-width: 900px) { .film__stage::after { background: linear-gradient(to left, rgba(0,0,0,.88) 0%, rgba(0,0,0,.55) 34%, transparent 55%); } }
 /* Scenes stack in one grid cell, so no transforms fight the scroll animation. */
 .film__copy { z-index: 3; position: absolute; inset: 96px var(--gut) calc(7svh + env(safe-area-inset-bottom)) var(--gut); max-width: 620px; display: grid; pointer-events: none; }
+/* The stage is as tall as the screen with the browser bar hidden (no strip below it); the words stay above the bar when it shows. */
+.film__copy { bottom: calc(100lvh - 100svh + 7svh + env(safe-area-inset-bottom)); }
 .scene-text { grid-area: 1 / 1; align-self: end; pointer-events: auto; }
 .film .eyebrow { color: var(--gold); }
 .film .display em, .film .display-sm em { color: var(--gold); }
@@ -485,9 +487,10 @@ html:not(.js) .rail__track { overflow-x: auto; width: auto; }
 /* ---- Home: Build a Box + Mystery Scoop ---- */
 .specials { max-width: var(--wide); margin: 0 auto; padding: 0 var(--gut); display: grid; gap: 16px; }
 @media (min-width: 800px) { .specials { grid-template-columns: 1fr 1fr; } }
-.special { display: grid; align-content: end; gap: .3rem; min-height: 300px; padding: clamp(1.5rem, 4vw, 2.6rem); border-radius: 200px 200px 24px 24px; text-decoration: none; color: var(--ink);
+.special { display: grid; align-content: center; justify-items: center; text-align: center; gap: .3rem; min-height: 340px; padding: clamp(4.5rem, 12vw, 6rem) clamp(1.6rem, 6vw, 3rem) clamp(1.8rem, 4vw, 2.6rem); border-radius: 200px 200px 24px 24px; text-decoration: none; color: var(--ink);
   background: radial-gradient(circle at 50% 20%, #fbf3e2, var(--sand)); border: 1px solid var(--gold-line); }
 .special--dark { background: radial-gradient(circle at 50% 20%, #2a2219, #0e0c0a); color: var(--ivory); }
 .special--dark .display-sm em { color: var(--gold); }
-.special p { margin: 0 0 .8rem; max-width: 36ch; }
-.special .pill { justify-self: start; }
+.special p { margin: 0 0 .8rem; max-width: 30ch; }
+.special .pill { justify-self: center; }
+.special .eyebrow { max-width: none; letter-spacing: .16em; }

@@ -11,7 +11,7 @@ const BASE = (process.argv[3] ?? '/alora-website').replace(/\/$/, '');
 const SRC = process.env.SRC || 'http://localhost:8080';
 // Pages that need the PHP server (sessions, forms, payments) are left out of the preview.
 const SKIP = /^\/(admin|account|order|payfast|bag|checkout)\//;
-const TOP = /(assets|media|product|product-category|shop|about|contact|personalised|terms|privacy|bag|checkout|account|admin|order)\//;
+const TOP = /(assets|media|product|product-category|shop|about|contact|personalised|terms|privacy|bag|checkout|account|admin|order|build-a-box|mystery-scoop)\//;
 
 // Root-relative addresses ("/shop/") become "/alora-website/shop/" because Pages serves the repo under a sub-path.
 const rebase = (s) => s
