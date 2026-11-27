@@ -228,6 +228,46 @@
     scoop.addEventListener('change', () => { total.textContent = rand(each * +($('input[name=qty]:checked', scoop)?.value || 1)); });
   }
 
+  // ---- Teachers Box: live lid preview (name, line, colour, design, own picture) and total ----
+  const tb = $('[data-tb]');
+  if (tb) {
+    const boxEl = $('[data-tb-box]', tb), pic = $('[data-tb-pic]', tb);
+    const fallback = { name: 'Ms Spies', line: 'Grade 1 Teacher' };
+    $$('[data-tb-in]', tb).forEach((i) => i.addEventListener('input', () => {
+      $(`[data-tb-${i.dataset.tbIn}]`, tb).textContent = i.value.trim() || fallback[i.dataset.tbIn];
+    }));
+    let picUrl;
+    $('[data-tb-file]', tb).addEventListener('change', (ev) => {
+      const file = ev.target.files[0];
+      if (picUrl) URL.revokeObjectURL(picUrl);
+      picUrl = null; pic.hidden = true;
+      if (!file) return;
+      if (file.size > 10 * 1024 * 1024) { say('That photo is over 10 MB. Please choose a smaller one.'); ev.target.value = ''; return; }
+      // iPhone HEIC photos cannot be previewed in most browsers, but they still upload fine.
+      picUrl = URL.createObjectURL(file);
+      pic.onerror = () => { pic.hidden = true; say('Photo added. The preview cannot show this file type, but we will receive it.'); };
+      pic.onload = () => { pic.hidden = false; };
+      pic.src = picUrl;
+      const own = $('input[name=theme][value=own]', tb);
+      own.checked = true; boxEl.dataset.theme = 'own';
+    });
+    const total = () => {
+      const on = $$('input[name="addons[]"]:checked, input[name="extras[]"]:checked', tb);
+      const sum = on.reduce((s, i) => s + +i.dataset.price, 0), all = rand(+tb.dataset.box + sum);
+      $('[data-tb-count]', tb).textContent = on.length ? `${on.length} extra${on.length === 1 ? '' : 's'}` : 'No extras';
+      $('[data-tb-extras]', tb).textContent = rand(sum);
+      $('[data-tb-total]', tb).textContent = all;
+      $('[data-tb-total-bar]', tb).textContent = all;
+    };
+    tb.addEventListener('change', (ev) => {
+      const t = ev.target;
+      if (t.name === 'colour') boxEl.dataset.colour = t.value;
+      if (t.name === 'theme') { boxEl.dataset.theme = t.value; pic.hidden = t.value !== 'own' || !picUrl; }
+      total();
+    });
+    total();
+  }
+
   // ---- Build a Box: ticked pieces drop into the drawn box ------------------
   const bab = $('[data-bab]');
   if (bab) {

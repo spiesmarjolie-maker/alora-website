@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en-ZA">
+<head>
+<meta charset="utf-8">
+<script>document.documentElement.classList.add('js')</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Teachers Box · Alora</title>
+<meta name="description" content="Personalised Alora Teachers Box: a stationery box with your name, grade and design, filled with gel pens, a highlighter and more, for R150,00 a set.">
+<meta name="theme-color" content="#0e0c0a">
+<meta property="og:title" content="Teachers Box">
+<meta property="og:description" content="Personalised Alora Teachers Box: a stationery box with your name, grade and design, filled with gel pens, a highlighter and more, for R150,00 a set.">
+<link rel="preload" href="/alora-website/assets/fonts/cormorant-500.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/alora-website/assets/fonts/jost-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/alora-website/assets/css/site.css?v=1795819480">
+<link rel="icon" href="/alora-website/assets/img/icon.png">
+</head>
+<body class=""><div style="position:sticky;top:0;z-index:9999;background:#1a1612;color:#e8d3a8;font:500 13px/1.4 Jost,system-ui,sans-serif;text-align:center;padding:8px 12px">Preview copy for review: browsing only. Bag, checkout and accounts are switched off.</div>
+<a class="skip" href="#main">Skip to content</a>
+<div class="preview-strip">Website preview by NFC Software Solutions</div>
+
+<header class="nav" data-nav>
+  <a class="nav__brand" href="/alora-website/" aria-label="Alora home">ALORA</a>
+  <nav class="nav__links" aria-label="Main">
+    <a href="/alora-website/shop/">Shop</a>
+    <a href="/alora-website/product-category/ready-packed-gifts/">Gifts</a>
+    <a href="/alora-website/build-a-box/">Build a Box</a>
+    <a href="/alora-website/mystery-scoop/">Mystery Scoop</a>
+    <a href="/alora-website/teachers-box/">Teachers Box</a>
+    <a href="/alora-website/personalised/">Personalised</a>
+    <a class="nav__wide" href="/alora-website/about/">About</a>
+    <a class="nav__wide" href="/alora-website/contact/">Contact</a>
+  </nav>
+  <a class="nav__bag nav__acct" href="/alora-website/account/" aria-label="Sign in">
+    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M4 21c1.6-4 4.6-6 8-6s6.4 2 8 6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+  </a>
+  <a class="nav__bag" href="/alora-website/bag/" aria-label="Your bag, 0 items">
+    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 8h14l-1 12H6z M9 8a3 3 0 0 1 6 0" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+    <span class="nav__count" data-bag-count hidden>0</span>
+  </a>
+  <a class="pill" href="/alora-website/shop/">Shop</a>
+</header>
+
+<div class="toast" role="status" data-toast></div>
+<main id="main"><section class="page-head page-head--center">
+  <p class="eyebrow">Unique designs · your name · your grade · your subject · your style</p>
+  <h1 class="display-sm">Teachers <em>Box</em></h1>
+  <p class="lead">A personalised plastic stationery box, filled and ready for class. Add your name and design, or upload your own picture, then add extra stationery. R150,00 per set.</p>
+</section>
+
+<form class="tb" method="post" action="/alora-website/teachers-box/" enctype="multipart/form-data" data-tb data-box="15000">
+  <input type="hidden" name="csrf" value="1c92600ee76bb10b62f320516a131c440a19c34ec9ce14918482e184f6146442">
+  <!-- Live preview of the box lid: colour, design or own picture, name and line 2. -->
+  <aside class="tb__side">
+    <div class="tb__box" data-tb-box data-colour="blue" data-theme="florals" aria-hidden="true">
+      <div class="tb__lid">
+        <div class="tb__label">
+          <img class="tb__pic" data-tb-pic alt="" hidden>
+          <span class="tb__art"></span>
+          <span class="tb__name" data-tb-name>Ms Spies</span>
+          <span class="tb__line" data-tb-line>Grade 1 Teacher</span>
+        </div>
+      </div>
+    </div>
+    <p class="tb__hint">A preview only: we design your box by hand and WhatsApp you if anything needs checking.</p>
+
+    <div class="bab__sum">
+      <p class="row"><span>Teachers Box set</span><span>R150,00</span></p>
+      <p class="row"><span data-tb-count>No extras</span><span data-tb-extras>R0,00</span></p>
+      <p class="row row--total"><span>Your set</span><strong data-tb-total>R150,00</strong></p>
+      <button class="pill pill--lg pill--block">Add my Teachers Box to the bag</button>
+      <p class="note-delivery"><strong>Delivery is not included</strong> and is added at checkout.</p>
+    </div>
+  </aside>
+
+  <div class="tb__main">
+    <fieldset class="tb__step">
+      <legend class="tb__h"><span>1</span> Your name on the box</legend>
+      <label class="field"><span>Name (for example "Ms Spies" or "Juffrou Rulyn")</span>
+        <input name="box_name" maxlength="30" required value="" data-tb-in="name" autocomplete="off"></label>
+      <label class="field"><span>Second line: grade or subject (optional)</span>
+        <input name="box_line" maxlength="50" value="" data-tb-in="line" placeholder="Grade 1 Teacher" autocomplete="off"></label>
+    </fieldset>
+
+    <fieldset class="tb__step">
+      <legend class="tb__h"><span>2</span> Box colour</legend>
+      <div class="tb__swatches">
+                  <label class="tb__swatch tb__swatch--blue"><input type="radio" name="colour" value="blue" checked><span>Sky blue</span></label>
+                  <label class="tb__swatch tb__swatch--purple"><input type="radio" name="colour" value="purple" ><span>Purple</span></label>
+                  <label class="tb__swatch tb__swatch--green"><input type="radio" name="colour" value="green" ><span>Green</span></label>
+                  <label class="tb__swatch tb__swatch--pink"><input type="radio" name="colour" value="pink" ><span>Pink</span></label>
+                  <label class="tb__swatch tb__swatch--lilac"><input type="radio" name="colour" value="lilac" ><span>Lilac</span></label>
+              </div>
+    </fieldset>
+
+    <fieldset class="tb__step">
+      <legend class="tb__h"><span>3</span> Design</legend>
+      <div class="tb__themes">
+                  <label class="tb__theme tb__theme--florals"><input type="radio" name="theme" value="florals" checked><span class="tb__theme-art"></span><span>Florals</span></label>
+                  <label class="tb__theme tb__theme--sea"><input type="radio" name="theme" value="sea" ><span class="tb__theme-art"></span><span>Under the sea</span></label>
+                  <label class="tb__theme tb__theme--rainbow"><input type="radio" name="theme" value="rainbow" ><span class="tb__theme-art"></span><span>Sunshine &amp; rainbow</span></label>
+                  <label class="tb__theme tb__theme--science"><input type="radio" name="theme" value="science" ><span class="tb__theme-art"></span><span>Science &amp; nature</span></label>
+                  <label class="tb__theme tb__theme--own"><input type="radio" name="theme" value="own" ><span class="tb__theme-art"></span><span>My own picture</span></label>
+              </div>
+      <label class="field tb__upload"><span>Your own picture for the box (a logo, your class photo, a drawing). JPG, PNG or iPhone photo, up to 10 MB.</span>
+        <input type="file" name="picture" accept="image/jpeg,image/png,image/webp,image/heic,image/heif,.heic" data-tb-file></label>
+      <label class="field"><span>Anything else about your design? (font, favourite colours, subject icons)</span>
+        <textarea name="wish" rows="2" maxlength="300"></textarea></label>
+    </fieldset>
+
+    <div class="tb__step">
+      <h2 class="tb__h"><span>4</span> In every set</h2>
+      <ul class="tb__includes"><li>Personalised stationery box</li><li>8 neon gel ink pens</li><li>Highlighter</li><li>2 pens</li><li>Pencil</li><li>Pencil sharpener (with container)</li><li>Page flags / sticky tabs</li><li>Paper clips</li></ul>
+    </div>
+
+        <fieldset class="tb__step">
+      <legend class="tb__h"><span>5</span> Optional add-ons</legend>
+      <div class="tb__addons">
+                  <label class="tb__addon"><input type="checkbox" name="addons[]" value="187" data-price="800">
+            <span>eraser</span><strong>R8,00</strong></label>
+                  <label class="tb__addon"><input type="checkbox" name="addons[]" value="186" data-price="1000">
+            <span>sticky note pad</span><strong>R10,00</strong></label>
+                  <label class="tb__addon"><input type="checkbox" name="addons[]" value="185" data-price="2000">
+            <span>sticker pack</span><strong>R20,00</strong></label>
+                  <label class="tb__addon"><input type="checkbox" name="addons[]" value="188" data-price="3000">
+            <span>stapler set</span><strong>R30,00</strong></label>
+              </div>
+    </fieldset>
+    
+        <fieldset class="tb__step">
+      <legend class="tb__h"><span>6</span> Add stationery from the shop</legend>
+      <p class="muted">We pack these into your box too.</p>
+      <div class="bab__grid">
+                  <label class="bab__item">
+            <input type="checkbox" name="extras[]" value="148" data-price="4000">
+            <span class="bab__img"><img src="/alora-website/media/p/axolotl-glitter-bookmark-600.webp" srcset="/alora-website/media/p/axolotl-glitter-bookmark-600.webp 600w, /alora-website/media/p/axolotl-glitter-bookmark-1200.webp 1200w, /alora-website/media/p/axolotl-glitter-bookmark-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Axolotl Glitter Bookmark" loading="lazy"></span>
+            <span class="bab__name">Axolotl Glitter Bookmark</span>
+            <span class="bab__price">R40,00</span>
+            <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+          </label>
+                  <label class="bab__item">
+            <input type="checkbox" name="extras[]" value="154" data-price="4000">
+            <span class="bab__img"><img src="/alora-website/media/p/blue-glitter-capybara-bookmark-600.webp" srcset="/alora-website/media/p/blue-glitter-capybara-bookmark-600.webp 600w, /alora-website/media/p/blue-glitter-capybara-bookmark-1200.webp 1200w, /alora-website/media/p/blue-glitter-capybara-bookmark-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Blue Glitter Capybara Bookmark" loading="lazy"></span>
+            <span class="bab__name">Blue Glitter Capybara Bookmark</span>
+            <span class="bab__price">R40,00</span>
+            <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+          </label>
+                  <label class="bab__item">
+            <input type="checkbox" name="extras[]" value="155" data-price="4000">
+            <span class="bab__img"><img src="/alora-website/media/p/gold-baby-chick-bookmark-600.webp" srcset="/alora-website/media/p/gold-baby-chick-bookmark-600.webp 600w, /alora-website/media/p/gold-baby-chick-bookmark-1200.webp 1200w, /alora-website/media/p/gold-baby-chick-bookmark-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Gold Baby Chick Bookmark" loading="lazy"></span>
+            <span class="bab__name">Gold Baby Chick Bookmark</span>
+            <span class="bab__price">R40,00</span>
+            <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+          </label>
+                  <label class="bab__item">
+            <input type="checkbox" name="extras[]" value="152" data-price="4000">
+            <span class="bab__img"><img src="/alora-website/media/p/green-glitter-frog-bookmark-600.webp" srcset="/alora-website/media/p/green-glitter-frog-bookmark-600.webp 600w, /alora-website/media/p/green-glitter-frog-bookmark-1200.webp 1200w, /alora-website/media/p/green-glitter-frog-bookmark-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Green Glitter Frog Bookmark" loading="lazy"></span>
+            <span class="bab__name">Green Glitter Frog Bookmark</span>
+            <span class="bab__price">R40,00</span>
+            <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+          </label>
+                  <label class="bab__item">
+            <input type="checkbox" name="extras[]" value="150" data-price="4000">
+            <span class="bab__img"><img src="/alora-website/media/p/heaven-declare-red-glitter-bookmark-600.webp" srcset="/alora-website/media/p/heaven-declare-red-glitter-bookmark-600.webp 600w, /alora-website/media/p/heaven-declare-red-glitter-bookmark-1200.webp 1200w, /alora-website/media/p/heaven-declare-red-glitter-bookmark-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Heaven Declare Red Glitter Bookmark" loading="lazy"></span>
+            <span class="bab__name">Heaven Declare Red Glitter Bookmark</span>
+            <span class="bab__price">R40,00</span>
+            <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+          </label>
+                  <label class="bab__item">
+            <input type="checkbox" name="extras[]" value="156" data-price="4000">
+            <span class="bab__img"><img src="/alora-website/media/p/pink-glitter-cat-bookmark-600.webp" srcset="/alora-website/media/p/pink-glitter-cat-bookmark-600.webp 600w, /alora-website/media/p/pink-glitter-cat-bookmark-1200.webp 1200w, /alora-website/media/p/pink-glitter-cat-bookmark-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Pink Glitter Cat Bookmark" loading="lazy"></span>
+            <span class="bab__name">Pink Glitter Cat Bookmark</span>
+            <span class="bab__price">R40,00</span>
+            <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+          </label>
+                  <label class="bab__item">
+            <input type="checkbox" name="extras[]" value="151" data-price="4000">
+            <span class="bab__img"><img src="/alora-website/media/p/purple-glitter-sloth-bookmark-600.webp" srcset="/alora-website/media/p/purple-glitter-sloth-bookmark-600.webp 600w, /alora-website/media/p/purple-glitter-sloth-bookmark-1200.webp 1200w, /alora-website/media/p/purple-glitter-sloth-bookmark-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Purple Glitter Sloth Bookmark" loading="lazy"></span>
+            <span class="bab__name">Purple Glitter Sloth Bookmark</span>
+            <span class="bab__price">R40,00</span>
+            <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+          </label>
+                  <label class="bab__item">
+            <input type="checkbox" name="extras[]" value="163" data-price="3000">
+            <span class="bab__img"><img src="/alora-website/media/p/random-beaded-pen-600.webp" srcset="/alora-website/media/p/random-beaded-pen-600.webp 600w, /alora-website/media/p/random-beaded-pen-1200.webp 1200w, /alora-website/media/p/random-beaded-pen-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Random Beaded Pen" loading="lazy"></span>
+            <span class="bab__name">Random Beaded Pen</span>
+            <span class="bab__price">R30,00</span>
+            <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+          </label>
+                  <label class="bab__item">
+            <input type="checkbox" name="extras[]" value="179" data-price="1500">
+            <span class="bab__img"><img src="/alora-website/media/p/random-design-plastic-bookmark-600.webp" srcset="/alora-website/media/p/random-design-plastic-bookmark-600.webp 600w, /alora-website/media/p/random-design-plastic-bookmark-1200.webp 1200w, /alora-website/media/p/random-design-plastic-bookmark-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Random Design Plastic Bookmark" loading="lazy"></span>
+            <span class="bab__name">Random Design Plastic Bookmark</span>
+            <span class="bab__price">R15,00</span>
+            <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+          </label>
+                  <label class="bab__item">
+            <input type="checkbox" name="extras[]" value="173" data-price="1000">
+            <span class="bab__img"><img src="/alora-website/media/p/reading-checklist-bookmarks-600.webp" srcset="/alora-website/media/p/reading-checklist-bookmarks-600.webp 600w, /alora-website/media/p/reading-checklist-bookmarks-1200.webp 1200w, /alora-website/media/p/reading-checklist-bookmarks-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Reading Checklist Bookmarks" loading="lazy"></span>
+            <span class="bab__name">Reading Checklist Bookmarks</span>
+            <span class="bab__price">R10,00</span>
+            <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+          </label>
+                  <label class="bab__item">
+            <input type="checkbox" name="extras[]" value="153" data-price="4000">
+            <span class="bab__img"><img src="/alora-website/media/p/silver-glitter-goose-bookmark-600.webp" srcset="/alora-website/media/p/silver-glitter-goose-bookmark-600.webp 600w, /alora-website/media/p/silver-glitter-goose-bookmark-1200.webp 1200w, /alora-website/media/p/silver-glitter-goose-bookmark-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Silver Glitter Goose Bookmark" loading="lazy"></span>
+            <span class="bab__name">Silver Glitter Goose Bookmark</span>
+            <span class="bab__price">R40,00</span>
+            <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+          </label>
+                  <label class="bab__item">
+            <input type="checkbox" name="extras[]" value="146" data-price="1000">
+            <span class="bab__img"><img src="/alora-website/media/p/washi-tape-600.webp" srcset="/alora-website/media/p/washi-tape-600.webp 600w, /alora-website/media/p/washi-tape-1200.webp 1200w, /alora-website/media/p/washi-tape-1600.webp 1600w" sizes="(min-width: 900px) 14vw, 30vw" alt="Washi Tape" loading="lazy"></span>
+            <span class="bab__name">Washi Tape</span>
+            <span class="bab__price">R10,00</span>
+            <span class="bab__add"><span class="bab__add-in">Add to box</span><span class="bab__add-on">In your box ✓</span></span>
+          </label>
+              </div>
+    </fieldset>
+      </div>
+
+  <div class="bab__bar">
+    <span class="bab__bar-txt"><strong data-tb-total-bar>R150,00</strong> Teachers Box</span>
+    <button class="pill pill--gold">Add to bag</button>
+  </div>
+</form>
+</main>
+
+<footer class="foot">
+  <div class="foot__grid">
+    <div>
+      <p class="foot__brand">ALORA</p>
+      <p class="foot__line">Where dreams meet light.<br>Chosen with love in South Africa.</p>
+      <a class="pill pill--gold" href="https://wa.me/27817371752?text=Hi%20Alora%21%20I%20have%20a%20question." target="_blank" rel="noopener">WhatsApp us</a>
+      <p class="socials socials--foot"><a href="https://www.instagram.com/alora_wheredreamsmeetlight/" target="_blank" rel="noopener" aria-label="Alora on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg><span>Instagram</span></a><a href="https://www.facebook.com/share/1CywNURGn1/" target="_blank" rel="noopener" aria-label="Alora on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 8H17V4.5h-2.5C12 4.5 10.5 6 10.5 8.6V11H8v3.5h2.5V21H14v-6.5h2.6l.4-3.5h-3V9c0-.6.4-1 .5-1z"/></svg><span>Facebook</span></a><a href="https://www.tiktok.com/@helloalora97" target="_blank" rel="noopener" aria-label="Alora on TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3v11.5a3.5 3.5 0 1 1-3-3.46M14 3c.4 2.6 2.2 4.3 5 4.5"/></svg><span>TikTok</span></a></p>    </div>
+    <div>
+      <p class="eyebrow">Shop</p>
+      <ul>
+                  <li><a href="/alora-website/product-category/accessories/">Accessories &amp; Adornments</a></li>
+                  <li><a href="/alora-website/product-category/bath-body/">Beauty</a></li>
+                  <li><a href="/alora-website/product-category/christian-girlies/">Christian Girlies</a></li>
+                  <li><a href="/alora-website/product-category/creative-corner/">Creative Corner</a></li>
+                  <li><a href="/alora-website/product-category/home-glow/">Home Glow</a></li>
+                  <li><a href="/alora-website/product-category/nails/">Press-Ons &amp; Nail Essentials</a></li>
+                  <li><a href="/alora-website/product-category/ready-packed-gifts/">Ready Packed Gifts</a></li>
+                  <li><a href="/alora-website/product-category/stationary-lovers/">Stationery Lovers</a></li>
+              </ul>
+    </div>
+    <div>
+      <p class="eyebrow">Help</p>
+      <ul>
+        <li><a href="/alora-website/build-a-box/">Build a Box</a></li>
+        <li><a href="/alora-website/mystery-scoop/">Mystery Scoop</a></li>
+        <li><a href="/alora-website/teachers-box/">Teachers Box</a></li>
+        <li><a href="/alora-website/about/">Our story</a></li>
+        <li><a href="/alora-website/contact/">Contact</a></li>
+        <li><a href="/alora-website/account/">My account</a></li>
+        <li><a href="/alora-website/terms/">Terms &amp; returns</a></li>
+        <li><a href="/alora-website/privacy/">Privacy (POPIA)</a></li>
+        <li><a href="tel:+27817371752">081 737 1752</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot__base">
+    <p>We only use your details to process your order and never sell them. <a href="/alora-website/privacy/">Privacy notice (POPIA)</a>.</p>
+    <p>© 2026 Alora · <a href="/alora-website/admin/">Staff login</a> · <span class="credit">Website by NFC Software Solutions</span></p>
+  </div>
+</footer>
+
+<script>window.ALORA = { csrf: "1c92600ee76bb10b62f320516a131c440a19c34ec9ce14918482e184f6146442" };</script>
+<script src="/alora-website/assets/vendor/gsap.min.js?v=1795604637" defer></script>
+<script src="/alora-website/assets/vendor/ScrollTrigger.min.js?v=1795604637" defer></script>
+<script src="/alora-website/assets/vendor/lenis.min.js?v=1795604637" defer></script>
+<script src="/alora-website/assets/js/site.js?v=1795819410" defer></script>
+</body>
+</html>
