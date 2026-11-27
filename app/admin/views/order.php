@@ -25,7 +25,8 @@ $wa = 'https://wa.me/' . preg_replace('/^0/', '27', preg_replace('/\D/', '', $or
       <tr><td></td><td class="muted"><?= e($order['shipping_name']) ?></td><td></td><td class="r"><?= money((int) $order['shipping_cents']) ?></td></tr>
       <tr class="total"><td></td><td>Total</td><td></td><td class="r"><?= money((int) $order['total_cents']) ?></td></tr>
     </table>
-    <?php if ($order['customer_note']): ?><h3>Customer note</h3><p class="note"><?= nl2br(e($order['customer_note'])) ?></p><?php endif ?>
+    <?php if ($order['customer_note']): ?><h3>Customer note</h3><p class="note"><?= preg_replace('#/admin/uploads/(\d{8}-[a-f0-9]{16}\.(?:jpg|png|webp|heic))#',
+      '<a href="/admin/uploads/$1" target="_blank" rel="noopener">open picture</a>', nl2br(e($order['customer_note']))) ?></p><?php endif ?>
 
     <h2 class="mt">History</h2>
     <ol class="timeline">

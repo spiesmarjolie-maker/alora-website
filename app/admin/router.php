@@ -28,6 +28,22 @@ if (($parts[0] ?? '') === 'logout') {
     redirect('/admin/login/');
 }
 
+// A customer's Teachers Box picture (kept outside public/): staff only, served as a download-safe image.
+if (($parts[0] ?? '') === 'uploads') {
+    $name = $parts[1] ?? '';
+    $file = STORAGE . '/uploads/teachers-box/' . $name;
+    if (!preg_match('/^\d{8}-[a-f0-9]{16}\.(jpg|png|webp|heic)$/', $name) || !is_file($file)) {
+        not_found();
+    }
+    $types = ['jpg' => 'image/jpeg', 'png' => 'image/png', 'webp' => 'image/webp', 'heic' => 'image/heic'];
+    header('Content-Type: ' . $types[pathinfo($name, PATHINFO_EXTENSION)]);
+    header('Content-Disposition: ' . (str_ends_with($name, '.heic') ? 'attachment' : 'inline') . '; filename="teachers-box-' . $name . '"');
+    header("Content-Security-Policy: default-src 'none'; img-src 'self'; style-src 'unsafe-inline'");
+    header('Content-Length: ' . filesize($file));
+    readfile($file);
+    return;
+}
+
 $section = $parts[0] ?? 'dashboard';
 $file = __DIR__ . '/' . match ($section) {
     'dashboard' => 'dashboard.php',

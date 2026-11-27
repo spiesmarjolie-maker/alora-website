@@ -12,7 +12,7 @@ if (!$mine) {
 }
 // Back from Payfast: the bag has been ordered.
 if (($_SESSION['last_order'] ?? null) == $order['id']) {
-    unset($_SESSION['bag'], $_SESSION['checkout'], $_SESSION['box']);
+    unset($_SESSION['bag'], $_SESSION['checkout'], $_SESSION['box'], $_SESSION['teachers_boxes']);
 }
 header('Cache-Control: no-store');
 view('order', [

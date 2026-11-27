@@ -121,8 +121,8 @@ function in_stock(array $p): bool
 }
 
 /** Products a customer can actually buy (active and priced). */
-/** Bought from their own pages (/mystery-scoop/, /build-a-box/), so they stay out of the shop grids. */
-const SPECIAL_SLUGS = "'mystery-scoop', 'build-a-box-gift-box'";
+/** Bought from their own pages (/mystery-scoop/, /build-a-box/, /teachers-box/), so they stay out of the shop grids. */
+const SPECIAL_SLUGS = "'mystery-scoop', 'build-a-box-gift-box', 'teachers-box', 'teachers-box-sticker-pack', 'teachers-box-sticky-notes', 'teachers-box-eraser', 'teachers-box-stapler'";
 
 function products(string $where = '1', array $args = [], string $order = 'p.id DESC', int $limit = 500, bool $withSpecials = false): array
 {

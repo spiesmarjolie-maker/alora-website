@@ -32,9 +32,10 @@ $msg = flash();
     <a href="/product-category/ready-packed-gifts/">Gifts</a>
     <a href="/build-a-box/">Build a Box</a>
     <a href="/mystery-scoop/">Mystery Scoop</a>
+    <a href="/teachers-box/">Teachers Box</a>
     <a href="/personalised/">Personalised</a>
-    <a href="/about/">About</a>
-    <a href="/contact/">Contact</a>
+    <a class="nav__wide" href="/about/">About</a>
+    <a class="nav__wide" href="/contact/">Contact</a>
   </nav>
   <a class="nav__bag nav__acct" href="/account/" aria-label="<?= customer() ? 'My account' : 'Sign in' ?>">
     <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M4 21c1.6-4 4.6-6 8-6s6.4 2 8 6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
@@ -71,6 +72,7 @@ $msg = flash();
       <ul>
         <li><a href="/build-a-box/">Build a Box</a></li>
         <li><a href="/mystery-scoop/">Mystery Scoop</a></li>
+        <li><a href="/teachers-box/">Teachers Box</a></li>
         <li><a href="/about/">Our story</a></li>
         <li><a href="/contact/">Contact</a></li>
         <li><a href="/account/">My account</a></li>

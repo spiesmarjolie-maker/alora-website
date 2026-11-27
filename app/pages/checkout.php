@@ -35,6 +35,12 @@ if ($method === 'POST') {
         $buyer['note'] = trim('BUILD A BOX, pack together: ' . implode(', ', $_SESSION['box']) . "
 " . $buyer['note']);
     }
+    // Teachers Boxes: name, design, picture link and what to pack, one line per box still in the bag.
+    $tbId = (int) q("SELECT id FROM products WHERE slug = 'teachers-box'")->fetchColumn();
+    if (!empty($_SESSION['teachers_boxes']) && isset(bag()[$tbId])) {
+        $tb = array_slice($_SESSION['teachers_boxes'], -(int) bag()[$tbId]);
+        $buyer['note'] = trim(implode("\n", $tb) . "\n" . $buyer['note']);
+    }
     $ship = null;
     foreach ($methods as $m) {
         if ((int) $m['id'] === (int) ($_POST['ship'] ?? 0)) {
